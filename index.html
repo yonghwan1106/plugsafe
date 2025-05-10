@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLUG-SAFE+ : 차세대 지능형 전기안전 플랫폼</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#fbbf24',
+                        accent: '#dc2626',
+                        dark: '#0f172a',
+                        light: '#f8fafc'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+        
+        .hero-pattern {
+            background-color: #1e40af;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' width='80' height='80'%3E%3Cpath fill='%233b82f6' fill-opacity='0.4' d='M14 16H9v-2h5V9.87a4 4 0 1 1 2 0V14h5v2h-5v15.95A10 10 0 0 0 23.66 27l-3.46-2 8.2-2.2-2.9 5a12 12 0 0 1-21 0l-2.89-5 8.2 2.2-3.47 2A10 10 0 0 0 14 31.95V16zm40 40h-5v-2h5v-4.13a4 4 0 1 1 2 0V54h5v2h-5v15.95A10 10 0 0 0 63.66 67l-3.47-2 8.2-2.2-2.88 5a12 12 0 0 1-21.02 0l-2.88-5 8.2 2.2-3.47 2A10 10 0 0 0 54 71.95V56zm-39 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm40-40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM15 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm40 40a2 2 0 1 0 0-4 2 2 0 0 0 0 4z'%3E%3C/path%3E%3C/svg%3E");
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .highlight-text {
+            background: linear-gradient(120deg, rgba(251, 191, 36, 0.2) 0%, rgba(251, 191, 36, 0.2) 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 40%;
+            background-position: 0 90%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-primary font-bold text-2xl">PLUG-SAFE<span class="text-accent">+</span></span>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="index.html" class="border-primary text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            홈
+                        </a>
+                        <a href="current-status.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            현황
+                        </a>
+                        <a href="background.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            배경 및 문제점
+                        </a>
+                        <a href="details.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            세부내용
+                        </a>
+                        <a href="expected-effects.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            기대효과
+                        </a>
+                        <a href="legal-policy.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            법률개정안
+                        </a>
+                        <a href="vision.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            장기 발전 비전
+                        </a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button type="button" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">메뉴 열기</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden hidden" id="mobile-menu">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="index.html" class="bg-primary text-white block pl-3 pr-4 py-2 text-base font-medium">홈</a>
+                <a href="current-status.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">현황</a>
+                <a href="background.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">배경 및 문제점</a>
+                <a href="details.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">세부내용</a>
+                <a href="expected-effects.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">기대효과</a>
+                <a href="legal-policy.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">법률개정안</a>
+                <a href="vision.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">장기 발전 비전</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern min-h-screen pt-20 pb-12 flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+                <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
+                    <div data-aos="fade-right" data-aos-duration="1000">
+                        <h1 class="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-5xl lg:mt-6 xl:text-6xl">
+                            <span class="block">PLUG-SAFE<span class="text-accent">+</span></span>
+                            <span class="block text-secondary">차세대 지능형 전기안전 플랫폼</span>
+                        </h1>
+                        <p class="mt-3 text-base text-gray-100 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+                            스마트 플러그 기반 AI 위험 예측 시스템 + 맞춤형 안전 액션 가이드
+                        </p>
+                        <div class="mt-8 sm:mt-12">
+                            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                                <div class="rounded-md shadow">
+                                    <a href="details.html" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
+                                        세부내용 보기
+                                    </a>
+                                </div>
+                                <div class="rounded-md shadow">
+                                    <a href="https://notebooklm.google.com/notebook/ccee1374-d7cc-4d2b-9b29-6c7e4c399167/audio" target="_blank" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
+                                        <i class="fas fa-volume-up mr-2"></i>음성으로 듣기
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex flex-wrap gap-4 justify-center lg:justify-start">
+                            <div class="flex items-center text-white">
+                                <svg class="h-6 w-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span>전기화재 위험 72% 감소</span>
+                            </div>
+                            <div class="flex items-center text-white">
+                                <svg class="h-6 w-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span>연간 114,600원 절약</span>
+                            </div>
+                            <div class="flex items-center text-white">
+                                <svg class="h-6 w-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span>실시간 위험 감지 및 차단</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
+                    <div data-aos="fade-left" data-aos-duration="1000" class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
+                     
+<img src="assets/images/hero.png"> 
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Features Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-base font-semibold text-primary tracking-wide uppercase" data-aos="fade-up">주요 특징</h2>
+                <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight" data-aos="fade-up" data-aos-delay="100">
+                    <span class="highlight-text">혁신적인 전기안전</span> 솔루션
+                </p>
+                <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500" data-aos="fade-up" data-aos-delay="200">
+                    PLUG-SAFE+는 최첨단 기술을 활용하여 전기화재 위험을 사전에 감지하고 방지합니다.
+                </p>
+            </div>
+
+            <div class="mt-16">
+                <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <!-- Feature 1 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="p-6">
+                            <div class="inline-flex items-center justify-center p-3 bg-primary rounded-md shadow-lg mb-4">
+                                <i class="fas fa-microchip text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">AI 위험 예측 시스템</h3>
+                            <p class="mt-4 text-base text-gray-500">
+                                딥러닝 기반 아크 탐지 및 개인화 알고리즘으로 전기 사용 패턴을 학습하여 99.7% 정확도로 위험을 예측합니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="p-6">
+                            <div class="inline-flex items-center justify-center p-3 bg-primary rounded-md shadow-lg mb-4">
+                                <i class="fas fa-bolt text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">실시간 모니터링</h3>
+                            <p class="mt-4 text-base text-gray-500">
+                                0.05초 내 위험 감지 및 자동 차단으로 전기화재를 사전에 방지합니다. 기존 솔루션 대비 20배 빠른 반응 속도를 제공합니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden card-hover" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="p-6">
+                            <div class="inline-flex items-center justify-center p-3 bg-primary rounded-md shadow-lg mb-4">
+                                <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">맞춤형 안전 액션 가이드</h3>
+                            <p class="mt-4 text-base text-gray-500">
+                                개인의 생활 패턴에 맞춘 안전 가이드로 위험 요소를 제거하고 효율적인 전력 사용을 안내합니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Sections Navigation -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-base font-semibold text-primary tracking-wide uppercase" data-aos="fade-up">제안서 탐색</h2>
+                <p class="mt-1 text-3xl font-extrabold text-gray-900 sm:text-4xl sm:tracking-tight" data-aos="fade-up" data-aos-delay="100">
+                    PLUG-SAFE+ 제안서 내용
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <!-- Card 1 -->
+                <a href="current-status.html" class="group">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="100">
+                        <div class="p-6">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0">
+                                    <div class="inline-flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white">
+                                        <i class="fas fa-chart-pie"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900 group-hover:text-primary transition duration-150">
+                                        현황
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-base text-gray-500">
+                                    전기화재 통계 및 추세, 글로벌 전기안전 동향, 국내 전기안전 대책 현황을 살펴봅니다.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 px-6 py-4">
+                            <div class="text-sm">
+                                <span class="font-medium text-primary">바로가기</span>
+                                <svg class="inline-block ml-1 w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="background.html" class="group">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="200">
+                        <div class="p-6">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0">
+                                    <div class="inline-flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900 group-hover:text-primary transition duration-150">
+                                        배경 및 문제점
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-base text-gray-500">
+                                    일상 속 전기안전 관리의 한계, 디지털 전환 시대의 미흡한 안전 체계, 전기안전 생태계의 분절 등 문제점을 분석합니다.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 px-6 py-4">
+                            <div class="text-sm">
+                                <span class="font-medium text-primary">바로가기</span>
+                                <svg class="inline-block ml-1 w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="details.html" class="group">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="300">
+                        <div class="p-6">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0">
+                                    <div class="inline-flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white">
+                                        <i class="fas fa-cogs"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900 group-hover:text-primary transition duration-150">
+                                        세부내용
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-base text-gray-500">
+                                    PLUG-SAFE+ 시스템 개요, 핵심 기능, 기술적 차별점, 사용자 시나리오, 하드웨어 및 소프트웨어 설계 등 해결책을 제시합니다.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 px-6 py-4">
+                            <div class="text-sm">
+                                <span class="font-medium text-primary">바로가기</span>
+                                <svg class="inline-block ml-1 w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 4 -->
+                <a href="expected-effects.html" class="group">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="400">
+                        <div class="p-6">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0">
+                                    <div class="inline-flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900 group-hover:text-primary transition duration-150">
+                                        기대효과
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-base text-gray-500">
+                                    PLUG-SAFE+ 도입으로 인한 안전성 향상 효과, 경제적 효과, 사회적 효과, 산업적 효과 등을 예측합니다.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 px-6 py-4">
+                            <div class="text-sm">
+                                <span class="font-medium text-primary">바로가기</span>
+                                <svg class="inline-block ml-1 w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 5 -->
+                <a href="legal-policy.html" class="group">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="500">
+                        <div class="p-6">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0">
+                                    <div class="inline-flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white">
+                                        <i class="fas fa-balance-scale"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900 group-hover:text-primary transition duration-150">
+                                        법률개정안 및 정책 패키지
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-base text-gray-500">
+                                    전기안전관리법 등 법률 개정안과 재정 지원 프로그램, 보험연계 인센티브, 공공-민간 협력 모델 등 정책 지원 체계를 제안합니다.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 px-6 py-4">
+                            <div class="text-sm">
+                                <span class="font-medium text-primary">바로가기</span>
+                                <svg class="inline-block ml-1 w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 6 -->
+                <a href="vision.html" class="group">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="600">
+                        <div class="p-6">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0">
+                                    <div class="inline-flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white">
+                                        <i class="fas fa-rocket"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900 group-hover:text-primary transition duration-150">
+                                        장기 발전 비전
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-base text-gray-500">
+                                    기술 발전 로드맵, 생태계 구축 전략, 글로벌 진출 전략 등 PLUG-SAFE+의 미래 발전 방향을 제시합니다.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 px-6 py-4">
+                            <div class="text-sm">
+                                <span class="font-medium text-primary">바로가기</span>
+                                <svg class="inline-block ml-1 w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="gradient-bg py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-white sm:text-4xl" data-aos="fade-up">
+                    <span>미래를 준비하는 전기안전 혁신</span>
+                </h2>
+                <p class="mt-4 text-lg leading-6 text-white" data-aos="fade-up" data-aos-delay="100">
+                    PLUG-SAFE+와 함께 더 안전하고 스마트한 미래를 만들어 나가세요.
+                </p>
+                <div class="mt-8 flex justify-center flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="inline-flex rounded-md shadow">
+                        <a href="details.html" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-white hover:bg-gray-50">
+                            세부내용 보기
+                            <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="inline-flex rounded-md shadow">
+                        <a href="https://notebooklm.google.com/notebook/ccee1374-d7cc-4d2b-9b29-6c7e4c399167/audio" target="_blank" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-white hover:bg-gray-50">
+                            <i class="fas fa-volume-up mr-2"></i>음성으로 듣기
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">PLUG-SAFE<span class="text-accent">+</span></h3>
+                    <p class="text-gray-400 text-sm">
+                        차세대 지능형 전기안전 플랫폼<br>
+                        2025년 제4회 전기안전 국민 공모전
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">바로가기</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white text-sm">홈</a></li>
+                        <li><a href="current-status.html" class="text-gray-400 hover:text-white text-sm">현황</a></li>
+                        <li><a href="background.html" class="text-gray-400 hover:text-white text-sm">배경 및 문제점</a></li>
+                        <li><a href="details.html" class="text-gray-400 hover:text-white text-sm">세부내용</a></li>
+                        <li><a href="expected-effects.html" class="text-gray-400 hover:text-white text-sm">기대효과</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">문의처</h3>
+                    <p class="text-gray-400 text-sm">
+                        한국전기안전공사 법제운영부<br>
+                        063) 716-2193, 2195<br>
+                        policy@kesco.or.kr
+                    </p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                <p class="text-gray-400 text-sm">&copy; 2025 PLUG-SAFE+. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Main JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // AOS Animation Initialization
+        AOS.init({
+            once: true,
+            duration: 800,
+            easing: 'ease-out'
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
