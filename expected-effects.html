@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기대효과 | PLUG-SAFE+ : 차세대 지능형 전기안전 플랫폼</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#fbbf24',
+                        accent: '#dc2626',
+                        dark: '#0f172a',
+                        light: '#f8fafc'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .counter {
+            animation: countup 2s forwards;
+        }
+        
+        @keyframes countup {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .icon-bubble {
+            transition: all 0.3s ease;
+        }
+        
+        .icon-bubble:hover {
+            transform: scale(1.1);
+        }
+        
+        .progress-bar {
+            width: 0%;
+            transition: width 1.5s ease-out;
+        }
+        
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background-color: #e5e7eb;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-content {
+            position: relative;
+            width: calc(50% - 30px);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: calc(50% + 30px);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: calc(50% + 30px);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #1e40af;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html" class="text-primary font-bold text-2xl">PLUG-SAFE<span class="text-accent">+</span></a>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            홈
+                        </a>
+                        <a href="current-status.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            현황
+                        </a>
+                        <a href="background.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            배경 및 문제점
+                        </a>
+                        <a href="details.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            세부내용
+                        </a>
+                        <a href="expected-effects.html" class="border-primary text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            기대효과
+                        </a>
+                        <a href="legal-policy.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            법률개정안
+                        </a>
+                        <a href="vision.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            장기 발전 비전
+                        </a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button type="button" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">메뉴 열기</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden hidden" id="mobile-menu">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="index.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">홈</a>
+                <a href="current-status.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">현황</a>
+                <a href="background.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">배경 및 문제점</a>
+                <a href="details.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">세부내용</a>
+                <a href="expected-effects.html" class="bg-primary text-white block pl-3 pr-4 py-2 text-base font-medium">기대효과</a>
+                <a href="legal-policy.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">법률개정안</a>
+                <a href="vision.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">장기 발전 비전</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="bg-primary pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-3xl font-extrabold text-white sm:text-4xl">
+                    기대효과
+                </h1>
+                <p class="mt-3 max-w-2xl mx-auto text-xl text-white sm:mt-4">
+                    PLUG-SAFE+ 도입을 통한 안전성, 경제적, 사회적, 산업적 효과
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-12">
+        <!-- Safety Effects Section -->
+        <section class="py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">안전성 향상 효과</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                    <!-- Effect 1 -->
+                    <div data-aos="fade-up" data-aos-delay="100" class="bg-white rounded-lg shadow-lg p-6 text-center card-hover">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-fire-extinguisher text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">화재 위험 감소</h3>
+                        <div class="text-3xl font-bold text-primary counter" id="counter1">72%</div>
+                        <p class="text-gray-600 mt-2">과부하, 아크 발생으로 인한 화재 사전 차단 효과</p>
+                    </div>
+                    
+                    <!-- Effect 2 -->
+                    <div data-aos="fade-up" data-aos-delay="200" class="bg-white rounded-lg shadow-lg p-6 text-center card-hover">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-bolt-lightning text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">감전 사고 감소</h3>
+                        <div class="text-3xl font-bold text-primary counter" id="counter2">85%</div>
+                        <p class="text-gray-600 mt-2">누전 감지 및 차단 시간 단축 효과</p>
+                    </div>
+                    
+                    <!-- Effect 3 -->
+                    <div data-aos="fade-up" data-aos-delay="300" class="bg-white rounded-lg shadow-lg p-6 text-center card-hover">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-exclamation-triangle text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">위험 인지율 향상</h3>
+                        <div class="text-3xl font-bold text-primary counter" id="counter3">375%</div>
+                        <p class="text-gray-600 mt-2">실시간 알림 시스템으로 인한 사용자 인식 개선</p>
+                    </div>
+                    
+                    <!-- Effect 4 -->
+                    <div data-aos="fade-up" data-aos-delay="400" class="bg-white rounded-lg shadow-lg p-6 text-center card-hover">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-user-shield text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">취약계층 안전 보호</h3>
+                        <div class="text-3xl font-bold text-primary counter" id="counter4">100%</div>
+                        <p class="text-gray-600 mt-2">노인, 1인 가구 등 맞춤형 안전 지원</p>
+                    </div>
+                </div>
+                
+                <!-- Detailed Safety Information -->
+                <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-8 mb-12">
+                    <h3 class="text-xl font-bold text-gray-900 mb-6">주요 안전 향상 지표</h3>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <p class="text-gray-700 mb-4">
+                                PLUG-SAFE+는 기존 안전장치가 해결하지 못했던 다양한 전기안전 위험요소를 사전에 감지하고 차단합니다. 특히 화재의 주요 원인인 아크 발생을 기존 누전차단기보다 90% 빠르게 감지하며, 위험 징후를 최대 72시간 전에 예측할 수 있습니다.
+                            </p>
+                            
+                            <div class="space-y-4 mt-6">
+                                <div>
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="text-sm font-medium text-gray-700">위험 요소 감지율</span>
+                                        <span class="text-sm font-medium text-gray-700">99.7%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-primary h-2.5 rounded-full progress-bar" style="width: 99.7%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="text-sm font-medium text-gray-700">경보 정확도</span>
+                                        <span class="text-sm font-medium text-gray-700">99.9%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-primary h-2.5 rounded-full progress-bar" style="width: 99.9%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="text-sm font-medium text-gray-700">위험 차단 속도</span>
+                                        <span class="text-sm font-medium text-gray-700">0.5초 이내</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-primary h-2.5 rounded-full progress-bar" style="width: 95%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="text-sm font-medium text-gray-700">사용자 만족도</span>
+                                        <span class="text-sm font-medium text-gray-700">94%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-primary h-2.5 rounded-full progress-bar" style="width: 94%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <!-- Chart for Safety Effects -->
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                               <canvas id="safetyEffectsChart" width="600" height="400"></canvas>
+                            </div>
+                            <div class="mt-4">
+                                <h4 class="text-sm font-medium text-gray-900 mb-2">전기안전 사고 유형별 감소 효과</h4>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-primary rounded-full mr-2"></div>
+                                        <span class="text-xs text-gray-700">과부하 방지: 87% 감소</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-secondary rounded-full mr-2"></div>
+                                        <span class="text-xs text-gray-700">누전 사고: 91% 감소</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-accent rounded-full mr-2"></div>
+                                        <span class="text-xs text-gray-700">아크 화재: 78% 감소</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
+                                        <span class="text-xs text-gray-700">노후 전선: 82% 감소</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Economic Effects Section -->
+        <section class="py-8 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">경제적 효과</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                    <!-- Household Economic Effect -->
+                    <div data-aos="fade-right" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-home text-primary text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900">가구당 경제적 효과</h3>
+                            </div>
+                            
+                            <div class="space-y-4 mb-6">
+                                <div class="flex justify-between p-3 bg-blue-50 rounded-lg items-center">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 rounded-full bg-blue-200 flex items-center justify-center mr-3">
+                                            <i class="fas fa-plug text-primary"></i>
+                                        </div>
+                                        <span class="font-medium">전기요금 절감</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-xl font-bold text-primary">연간 51,600원</div>
+                                        <div class="text-xs text-gray-500">월 평균 4,300원</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-between p-3 bg-green-50 rounded-lg items-center">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 rounded-full bg-green-200 flex items-center justify-center mr-3">
+                                            <i class="fas fa-shield-alt text-green-600"></i>
+                                        </div>
+                                        <span class="font-medium">보험료 할인</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-xl font-bold text-green-600">연간 28,000원</div>
+                                        <div class="text-xs text-gray-500">화재보험 할인 30% 적용</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-between p-3 bg-yellow-50 rounded-lg items-center">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 rounded-full bg-yellow-200 flex items-center justify-center mr-3">
+                                            <i class="fas fa-tv text-yellow-600"></i>
+                                        </div>
+                                        <span class="font-medium">가전제품 수명 연장</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-xl font-bold text-yellow-600">연간 35,000원</div>
+                                        <div class="text-xs text-gray-500">주요 가전 수명 15% 연장</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="border-t pt-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-lg font-bold text-gray-700">총 경제적 효과</span>
+                                    <span class="text-2xl font-bold text-primary">연간 114,600원</span>
+                                </div>
+                                <div class="mt-2 text-sm text-gray-600">
+                                    <span class="font-medium">투자회수기간:</span> 평균 11.4개월 (세제혜택 적용 시 8.7개월)
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- ROI Chart -->
+                        <div class="bg-gray-50 p-4 border-t">
+                            <h4 class="text-sm font-medium text-gray-900 mb-3">투자 대비 수익률</h4>
+                            <div class="h-48">
+                                <canvas id="roiChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Economic Effect -->
+                    <div data-aos="fade-left" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-city text-primary text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900">사회적 비용 절감 효과</h3>
+                            </div>
+                            
+                            <div class="space-y-4 mb-6">
+                                <div class="flex justify-between p-3 bg-red-50 rounded-lg items-center">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 rounded-full bg-red-200 flex items-center justify-center mr-3">
+                                            <i class="fas fa-fire text-red-600"></i>
+                                        </div>
+                                        <span class="font-medium">화재 피해 감소</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-xl font-bold text-red-600">연간 2,700억원</div>
+                                        <div class="text-xs text-gray-500">전기화재 54% 감소 시</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-between p-3 bg-purple-50 rounded-lg items-center">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 rounded-full bg-purple-200 flex items-center justify-center mr-3">
+                                            <i class="fas fa-heartbeat text-purple-600"></i>
+                                        </div>
+                                        <span class="font-medium">인명 피해 감소</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-xl font-bold text-purple-600">사망 43명, 부상 257명</div>
+                                        <div class="text-xs text-gray-500">연간 추정 감소량</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-between p-3 bg-indigo-50 rounded-lg items-center">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 rounded-full bg-indigo-200 flex items-center justify-center mr-3">
+                                            <i class="fas fa-hospital text-indigo-600"></i>
+                                        </div>
+                                        <span class="font-medium">의료비 절감</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-xl font-bold text-indigo-600">연간 480억원</div>
+                                        <div class="text-xs text-gray-500">화상 치료 및 재활비용</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-between p-3 bg-blue-50 rounded-lg items-center">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 rounded-full bg-blue-200 flex items-center justify-center mr-3">
+                                            <i class="fas fa-bolt text-blue-600"></i>
+                                        </div>
+                                        <span class="font-medium">전력 인프라 투자 절감</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-xl font-bold text-blue-600">연간 약 410억원</div>
+                                        <div class="text-xs text-gray-500">피크타임 전력 사용 5.8% 감소 효과</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="border-t pt-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-lg font-bold text-gray-700">총 사회적 비용 절감</span>
+                                    <span class="text-2xl font-bold text-primary">연간 3,590억원</span>
+                                </div>
+                                <div class="mt-2 text-sm text-gray-600">
+                                    <span class="font-medium">국민 1인당 절감액:</span> 약 7,000원 (총 인구 대비)
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Social Cost Chart -->
+                        <div class="bg-gray-50 p-4 border-t">
+                            <h4 class="text-sm font-medium text-gray-900 mb-3">사회적 비용 절감 비율</h4>
+                            <div class="h-48">
+                                <canvas id="socialCostChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Social Effects Section -->
+        <section class="py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">사회적 효과</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                    <!-- Effect 1 -->
+                    <div data-aos="zoom-in" data-aos-delay="100" class="bg-white rounded-lg shadow-lg p-6 text-center card-hover">
+                        <div class="icon-bubble w-20 h-20 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
+                            <i class="fas fa-hands-helping text-primary text-3xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">전기안전 문화 확산</h3>
+                        <p class="text-gray-600">생활 속 전기안전 인식 및 실천 문화 정착을 통한 안전 의식 고양</p>
+                    </div>
+                    
+                    <!-- Effect 2 -->
+                    <div data-aos="zoom-in" data-aos-delay="200" class="bg-white rounded-lg shadow-lg p-6 text-center card-hover">
+                        <div class="icon-bubble w-20 h-20 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
+                            <i class="fas fa-chart-line text-primary text-3xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">데이터 기반 안전 정책</h3>
+                        <p class="text-gray-600">축적된 데이터를 활용한 과학적 안전 정책 수립 및 실행</p>
+                    </div>
+                    
+                    <!-- Effect 3 -->
+                    <div data-aos="zoom-in" data-aos-delay="300" class="bg-white rounded-lg shadow-lg p-6 text-center card-hover">
+                        <div class="icon-bubble w-20 h-20 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
+                            <i class="fas fa-universal-access text-primary text-3xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">디지털 포용성 강화</h3>
+                        <p class="text-gray-600">전 연령층이 쉽게 활용 가능한 직관적 안전 시스템 보급</p>
+                    </div>
+                    
+                    <!-- Effect 4 -->
+                    <div data-aos="zoom-in" data-aos-delay="400" class="bg-white rounded-lg shadow-lg p-6 text-center card-hover">
+                        <div class="icon-bubble w-20 h-20 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
+                            <i class="fas fa-network-wired text-primary text-3xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">지역사회 안전 네트워크</h3>
+                        <p class="text-gray-600">지역별 안전 데이터 공유 및 협력 강화를 통한 공동체 회복력 향상</p>
+                    </div>
+                </div>
+                
+                <!-- Detailed Social Effects -->
+                <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-8 mb-12">
+                    <h3 class="text-xl font-bold text-gray-900 mb-6">안전 문화 확산 효과</h3>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <p class="text-gray-700 mb-6">
+                                PLUG-SAFE+는 단순한 안전장치를 넘어 전기안전 문화를 확산하는 사회적 플랫폼입니다. 게이미피케이션 요소와 지역사회 참여 시스템을 통해 안전에 대한 적극적인 참여와 관심을 유도합니다.
+                            </p>
+                            
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="bg-blue-50 p-4 rounded-lg">
+                                            <h4 class="font-medium text-gray-900">초기 (1년차)</h4>
+                                            <p class="mt-2 text-sm text-gray-600">개인 안전 의식 개선 및 실천 확산 (가정 내 안전 인식 42% 향상)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="bg-blue-50 p-4 rounded-lg">
+                                            <h4 class="font-medium text-gray-900">중기 (2-3년차)</h4>
+                                            <p class="mt-2 text-sm text-gray-600">지역사회 단위 안전 네트워크 구축 (지역 안전 협력 모델 개발 및 확산)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="bg-blue-50 p-4 rounded-lg">
+                                            <h4 class="font-medium text-gray-900">장기 (4-5년차)</h4>
+                                            <p class="mt-2 text-sm text-gray-600">국가 단위 안전 문화 정착 (전기안전 인식 및 실천 표준화)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="bg-gray-50 p-6 rounded-lg h-full">
+                                <h4 class="text-lg font-medium text-gray-900 mb-4">취약계층 안전 개선 효과</h4>
+                                
+                                <div class="space-y-6">
+                                    <div>
+                                        <div class="flex items-center mb-2">
+                                            <div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center mr-3">
+                                                <i class="fas fa-user-alt text-red-600"></i>
+                                            </div>
+                                            <h5 class="font-medium text-gray-800">노인 가구 (65세 이상)</h5>
+                                        </div>
+                                        <div class="ml-11">
+                                            <div class="text-sm text-gray-600 mb-2">전기화재 위험 93% 감소, 음성 안내 시스템으로 접근성 향상</div>
+                                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                <div class="bg-red-500 h-2.5 rounded-full progress-bar" style="width: 93%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <div class="flex items-center mb-2">
+                                            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                                                <i class="fas fa-house-user text-blue-600"></i>
+                                            </div>
+                                            <h5 class="font-medium text-gray-800">1인 가구</h5>
+                                        </div>
+                                        <div class="ml-11">
+                                            <div class="text-sm text-gray-600 mb-2">원격 모니터링으로 부재 중 위험 87% 감소</div>
+                                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                <div class="bg-blue-500 h-2.5 rounded-full progress-bar" style="width: 87%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <div class="flex items-center mb-2">
+                                            <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-3">
+                                                <i class="fas fa-child text-green-600"></i>
+                                            </div>
+                                            <h5 class="font-medium text-gray-800">아동 안전</h5>
+                                        </div>
+                                        <div class="ml-11">
+                                            <div class="text-sm text-gray-600 mb-2">어린이 전기 안전사고 위험 95% 감소</div>
+                                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                <div class="bg-green-500 h-2.5 rounded-full progress-bar" style="width: 95%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <div class="flex items-center mb-2">
+                                            <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center mr-3">
+                                                <i class="fas fa-store text-purple-600"></i>
+                                            </div>
+                                            <h5 class="font-medium text-gray-800">소상공인</h5>
+                                        </div>
+                                        <div class="ml-11">
+                                            <div class="text-sm text-gray-600 mb-2">영업 중단 위험 82% 감소, 기기 수명 15% 연장</div>
+                                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                <div class="bg-purple-500 h-2.5 rounded-full progress-bar" style="width: 82%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Industrial Effects Section -->
+        <section class="py-8 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">산업적 효과</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <!-- Industrial Ecosystem Chart -->
+                    <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4">IoT 기반 안전 산업 생태계 활성화</h3>
+                        
+                        <div class="h-80 mb-6">
+                            <canvas id="ecosystemChart"></canvas>
+                        </div>
+                        
+                        <p class="text-sm text-gray-600">
+                            PLUG-SAFE+를 중심으로 한 새로운 전기안전 산업 생태계는 기기 제조, 소프트웨어 개발, 안전 서비스, 데이터 분석 등 다양한 영역에서 새로운 비즈니스 기회를 창출합니다.
+                        </p>
+                    </div>
+                    
+                    <!-- Job Creation and Market -->
+                    <div data-aos="fade-up" data-aos-delay="100" class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4">일자리 창출 및 시장 전망</h3>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                                    <i class="fas fa-user-plus text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900">신규 일자리 창출</h4>
+                                    <p class="text-sm text-gray-600">생산, 설치, 유지보수, 데이터 분석 등</p>
+                                </div>
+                                <div class="ml-auto text-2xl font-bold text-primary">4,500개</div>
+                            </div>
+                            
+                            <div class="space-y-2 mt-4">
+                                <div>
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="text-xs font-medium text-gray-700">제조 및 생산</span>
+                                        <span class="text-xs font-medium text-gray-700">1,800명</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-primary h-2 rounded-full progress-bar" style="width: 40%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="text-xs font-medium text-gray-700">설치 및 유지보수</span>
+                                        <span class="text-xs font-medium text-gray-700">1,200명</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-primary h-2 rounded-full progress-bar" style="width: 26.7%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="text-xs font-medium text-gray-700">소프트웨어 개발</span>
+                                        <span class="text-xs font-medium text-gray-700">850명</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-primary h-2 rounded-full progress-bar" style="width: 18.9%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="text-xs font-medium text-gray-700">데이터 분석 및 기타</span>
+                                        <span class="text-xs font-medium text-gray-700">650명</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-primary h-2 rounded-full progress-bar" style="width: 14.4%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-8 w-8 rounded-md bg-blue-100 text-primary">
+                                        <i class="fas fa-chart-bar"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="text-sm font-medium text-gray-900">시장 규모 전망</h4>
+                                    <p class="mt-1 text-xs text-gray-600">2030년까지 국내 시장 8,500억원, 글로벌 시장 78억 달러 규모 성장 예상</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-8 w-8 rounded-md bg-blue-100 text-primary">
+                                        <i class="fas fa-globe-asia"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="text-sm font-medium text-gray-900">해외 시장 진출</h4>
+                                    <p class="mt-1 text-xs text-gray-600">국내 성공사례 기반 일본, 싱가포르 등 아시아 시장 우선 진출, 2027년 유럽/북미 시장 진출 계획</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-8 w-8 rounded-md bg-blue-100 text-primary">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="text-sm font-medium text-gray-900">전문인력 양성</h4>
+                                    <p class="mt-1 text-xs text-gray-600">전기안전 데이터 사이언티스트 등 융합형 인재 연간 300명 양성 프로그램 운영</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-8 w-8 rounded-md bg-blue-100 text-primary">
+                                        <i class="fas fa-lightbulb"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="text-sm font-medium text-gray-900">디지털 전환과 안전 융합 모델</h4>
+                                    <p class="mt-1 text-xs text-gray-600">가스, 수도 등 타 안전 분야로의 확장성으로 안전 융합 산업 신시장 창출</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Call to Action -->
+        <section class="py-16 bg-primary">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold text-white mb-6">함께 만드는 안전한 전기 생활</h2>
+                <p class="text-xl text-blue-100 mb-10 max-w-3xl mx-auto">
+                    PLUG-SAFE+는 단순한 제품이 아닌 전기안전 패러다임을 바꾸는 생활 혁신 플랫폼입니다. 공공과 민간의 협력, 기술과 제도의 융합을 통해 더 안전하고 스마트한 미래를 함께 만들어 나갑니다.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="legal-policy.html" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-white hover:bg-blue-50">
+                        법률개정안 및 정책 패키지
+                    </a>
+                    <a href="vision.html" class="inline-flex items-center justify-center px-6 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-blue-800">
+                        장기 발전 비전 확인하기
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">PLUG-SAFE<span class="text-accent">+</span></h3>
+                    <p class="text-gray-400 text-sm">
+                        차세대 지능형 전기안전 플랫폼<br>
+                        2025년 제4회 전기안전 국민 공모전
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">바로가기</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white text-sm">홈</a></li>
+                        <li><a href="current-status.html" class="text-gray-400 hover:text-white text-sm">현황</a></li>
+                        <li><a href="background.html" class="text-gray-400 hover:text-white text-sm">배경 및 문제점</a></li>
+                        <li><a href="details.html" class="text-gray-400 hover:text-white text-sm">세부내용</a></li>
+                        <li><a href="expected-effects.html" class="text-gray-400 hover:text-white text-sm">기대효과</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">문의처</h3>
+                    <p class="text-gray-400 text-sm">
+                        한국전기안전공사 법제운영부<br>
+                        063) 716-2193, 2195<br>
+                        policy@kesco.or.kr
+                    </p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                <p class="text-gray-400 text-sm">&copy; 2025 PLUG-SAFE+. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Library JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Chart JS Configuration -->
+    <script>
+        // Initialize AOS Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out-cubic',
+                once: true,
+                offset: 100
+            });
+            
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Initialize Progress Bars
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 300);
+            });
+            
+            // Safety Effects Chart
+            const safetyCtx = document.getElementById('safetyEffectsChart').getContext('2d');
+            const safetyChart = new Chart(safetyCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['과부하 방지', '누전 사고', '아크 화재', '노후 전선', '어린이 안전'],
+                    datasets: [{
+                        label: 'PLUG-SAFE+ 도입 후',
+                        data: [87, 91, 78, 82, 95],
+                        backgroundColor: 'rgba(30, 64, 175, 0.2)',
+                        borderColor: 'rgba(30, 64, 175, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(30, 64, 175, 1)',
+                        pointRadius: 4
+                    }, {
+                        label: '기존 안전장치',
+                        data: [35, 42, 25, 30, 20],
+                        backgroundColor: 'rgba(209, 213, 219, 0.2)',
+                        borderColor: 'rgba(107, 114, 128, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(107, 114, 128, 1)',
+                        pointRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                display: true
+                            },
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                stepSize: 20
+                            }
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: '사고 유형별 감소율 (%)'
+                        },
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+            
+            // ROI Chart
+            const roiCtx = document.getElementById('roiChart').getContext('2d');
+            const roiChart = new Chart(roiCtx, {
+                type: 'line',
+                data: {
+                    labels: ['1개월', '3개월', '6개월', '9개월', '12개월', '18개월', '24개월'],
+                    datasets: [{
+                        label: '누적 수익',
+                        data: [-49900, -39900, -24900, -9900, 5100, 35100, 65100],
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        borderColor: 'rgba(16, 185, 129, 1)',
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: true
+                    }, {
+                        label: '세제혜택 적용 시',
+                        data: [-35000, -25000, -10000, 5000, 20000, 50000, 80000],
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            title: {
+                                display: true,
+                                text: '수익 (원)'
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return value.toLocaleString() + '원';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Social Cost Chart
+            const socialCostCtx = document.getElementById('socialCostChart').getContext('2d');
+            const socialCostChart = new Chart(socialCostCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['화재 피해 감소', '의료비 절감', '전력 인프라 투자 절감', '기타'],
+                    datasets: [{
+                        data: [2700, 480, 410, 0],
+                        backgroundColor: [
+                            'rgba(220, 38, 38, 0.8)',
+                            'rgba(79, 70, 229, 0.8)',
+                            'rgba(30, 64, 175, 0.8)',
+                            'rgba(107, 114, 128, 0.8)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    const total = context.dataset.data.reduce((acc, val) => acc + val, 0);
+                                    const percentage = Math.round((value / total) * 100);
+                                    return `${label}: ${value}억원 (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Industry Ecosystem Chart
+            const ecosystemCtx = document.getElementById('ecosystemChart').getContext('2d');
+            const ecosystemChart = new Chart(ecosystemCtx, {
+                type: 'bubble',
+                data: {
+                    datasets: [{
+                        label: '하드웨어 제조',
+                        data: [{
+                            x: 40,
+                            y: 70,
+                            r: 25
+                        }],
+                        backgroundColor: 'rgba(30, 64, 175, 0.7)',
+                    }, {
+                        label: '소프트웨어 개발',
+                        data: [{
+                            x: 70,
+                            y: 60,
+                            r: 20
+                        }],
+                        backgroundColor: 'rgba(59, 130, 246, 0.7)',
+                    }, {
+                        label: '설치 및 유지보수',
+                        data: [{
+                            x: 30,
+                            y: 40,
+                            r: 18
+                        }],
+                        backgroundColor: 'rgba(16, 185, 129, 0.7)',
+                    }, {
+                        label: '데이터 분석',
+                        data: [{
+                            x: 60,
+                            y: 25,
+                            r: 15
+                        }],
+                        backgroundColor: 'rgba(251, 191, 36, 0.7)',
+                    }, {
+                        label: '안전 서비스',
+                        data: [{
+                            x: 85,
+                            y: 40,
+                            r: 22
+                        }],
+                        backgroundColor: 'rgba(220, 38, 38, 0.7)',
+                    }, {
+                        label: '보험 및 금융',
+                        data: [{
+                            x: 20,
+                            y: 20,
+                            r: 12
+                        }],
+                        backgroundColor: 'rgba(124, 58, 237, 0.7)',
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: '전기안전 산업 생태계 (버블 크기 = 시장규모)'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw.r * 50}억원 시장`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            min: 0,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: '성장성'
+                            },
+                            ticks: {
+                                display: false
+                            }
+                        },
+                        y: {
+                            min: 0,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: '일자리 창출'
+                            },
+                            ticks: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

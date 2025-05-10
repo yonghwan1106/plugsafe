@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>세부내용 | PLUG-SAFE+ : 차세대 지능형 전기안전 플랫폼</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#fbbf24',
+                        accent: '#dc2626',
+                        dark: '#0f172a',
+                        light: '#f8fafc'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .feature-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2);
+            color: #1e40af;
+        }
+        
+        .tab-active {
+            border-bottom: 2px solid #1e40af;
+            color: #1e40af;
+        }
+        
+        /* Animated Components */
+        .pulse {
+            box-shadow: 0 0 0 0 rgba(30, 64, 175, 0.7);
+            animation: pulse-animation 2s infinite;
+        }
+        
+        @keyframes pulse-animation {
+            0% {
+                box-shadow: 0 0 0 0 rgba(30, 64, 175, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(30, 64, 175, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(30, 64, 175, 0);
+            }
+        }
+        
+        .sensor-dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: #1e40af;
+            border-radius: 50%;
+            animation: sensor-pulse 2s infinite;
+        }
+        
+        @keyframes sensor-pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(30, 64, 175, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(30, 64, 175, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(30, 64, 175, 0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html" class="text-primary font-bold text-2xl">PLUG-SAFE<span class="text-accent">+</span></a>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            홈
+                        </a>
+                        <a href="current-status.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            현황
+                        </a>
+                        <a href="background.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            배경 및 문제점
+                        </a>
+                        <a href="details.html" class="border-primary text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            세부내용
+                        </a>
+                        <a href="expected-effects.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            기대효과
+                        </a>
+                        <a href="legal-policy.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            법률개정안
+                        </a>
+                        <a href="vision.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            장기 발전 비전
+                        </a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button type="button" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">메뉴 열기</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden hidden" id="mobile-menu">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="index.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">홈</a>
+                <a href="current-status.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">현황</a>
+                <a href="background.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">배경 및 문제점</a>
+                <a href="details.html" class="bg-primary text-white block pl-3 pr-4 py-2 text-base font-medium">세부내용</a>
+                <a href="expected-effects.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">기대효과</a>
+                <a href="legal-policy.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">법률개정안</a>
+                <a href="vision.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">장기 발전 비전</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="bg-primary pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-3xl font-extrabold text-white sm:text-4xl">
+                    세부내용
+                </h1>
+                <p class="mt-3 max-w-2xl mx-auto text-xl text-white sm:mt-4">
+                    PLUG-SAFE+ 시스템 개요, 핵심 기능 및 기술적 차별점, 사용자 시나리오, 하드웨어 및 소프트웨어 설계
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-12">
+
+        <!-- System Overview Section -->
+        <section class="py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-8 mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">PLUG-SAFE+ 시스템 개요</h2>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <p class="text-lg text-gray-700 mb-6">
+                                PLUG-SAFE+는 최신 IoT 스마트 플러그와 첨단 AI 알고리즘을 결합한 차세대 전기안전 관리 플랫폼입니다. 기존 콘센트에 장치를 연결함으로써 과부하, 누전, 아크 발생 위험을 24시간 모니터링하고, 위험 발생 시 음성/앱 알림과 함께 자동 차단 기능을 통해 사전 예방이 가능합니다.
+                            </p>
+                            <p class="text-lg text-gray-700 mb-6">
+                                특히 개인의 생활 패턴을 학습해 시간대별 전력 소비 추이와 고위험 기기 사용 패턴을 분석하여 맞춤형 절전 및 안전 조치를 제안합니다. 기존 아날로그 안전장치와 달리, 사전 예방, 실시간 대응, 지속적 개선의 선순환 체계를 구축합니다.
+                            </p>
+                            <div class="mt-8">
+                                <h3 class="text-xl font-bold text-gray-900 mb-4">핵심 차별점</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <svg class="h-6 w-6 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <span class="text-gray-700">위험 징후 <strong class="text-primary">사전 감지</strong> 및 자동 차단</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-6 w-6 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <span class="text-gray-700">AI 기반 <strong class="text-primary">맞춤형 안전 제안</strong> 제공</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-6 w-6 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <span class="text-gray-700">스마트폰 앱 및 음성 안내로 <strong class="text-primary">접근성 향상</strong></span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-6 w-6 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <span class="text-gray-700"><strong class="text-primary">개방형 생태계</strong>로 300+ 스마트홈 브랜드와 호환</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <div class="bg-gray-100 rounded-lg p-6 h-full">
+                                <div class="relative h-full w-full flex justify-center items-center">
+
+                                    <!-- Smart Plug Illustration -->
+<!-- Smart Plug Illustration -->
+<div class="relative">
+<!-- 메인 디바이스 컨테이너: w-64(16rem) → w-[19.2rem], h-48(12rem) → h-[14.4rem] -->
+<div class="w-[19.2rem] h-[14.4rem] bg-white rounded-xl shadow-xl flex items-center justify-center pulse relative mx-auto">
+    <!-- 디바이스 본체: w-48(12rem) → w-[14.4rem], h-32(8rem) → h-[9.6rem] -->
+    <div class="w-[14.4rem] h-[9.6rem] bg-gradient-to-br from-blue-50 to-white rounded-lg shadow-md flex flex-col items-center justify-center border border-blue-100 relative">
+        <!-- 디바이스 디스플레이: w-32(8rem) → w-[9.6rem], h-12(3rem) → h-[3.6rem] -->
+        <div class="w-[9.6rem] h-[3.6rem] bg-gradient-to-r from-primary to-blue-500 rounded-md flex items-center justify-center mb-2">
+            <span class="text-white font-bold text-xl">PLUG-SAFE+</span>
+        </div>
+        
+        <!-- 상태 표시등 -->
+        <div class="flex space-x-4 mt-1">
+            <div class="w-4 h-4 rounded-full bg-green-400 animate-pulse" title="전원 상태"></div>
+            <div class="w-4 h-4 rounded-full bg-blue-400 animate-pulse" style="animation-delay: 0.5s" title="Wi-Fi 연결"></div>
+            <div class="w-4 h-4 rounded-full bg-yellow-400 animate-pulse" style="animation-delay: 1s" title="데이터 송수신"></div>
+        </div>
+        
+        <!-- 소켓: 크기와 위치 조정 -->
+        <div class="absolute -right-8 top-1/2 transform -translate-y-1/2 w-8 h-24 bg-gradient-to-r from-gray-300 to-gray-200 rounded-r-md shadow-inner border border-gray-400">
+            <!-- 소켓 구멍 -->
+            <div class="absolute top-1/4 left-1/2 transform -translate-x-1/2 w-3 h-5 bg-gray-700 rounded-full"></div>
+            <div class="absolute top-2/3 left-1/2 transform -translate-x-1/2 w-3 h-5 bg-gray-700 rounded-full"></div>
+        </div>
+        
+        <!-- 플러그: 크기와 위치 조정 -->
+        <div class="absolute -left-10 top-1/2 transform -translate-y-1/2 w-10 h-14 bg-gradient-to-l from-gray-700 to-gray-900 rounded-l-md shadow flex items-center justify-start">
+            <!-- 플러그 단자 -->
+            <div class="absolute left-2 top-1/4 w-4 h-2 bg-gray-400 rounded"></div>
+            <div class="absolute left-2 top-2/3 w-4 h-2 bg-gray-400 rounded"></div>
+        </div>
+        
+        <!-- 케이블: 크기와 위치 조정 -->
+        <div class="absolute -left-[8.4rem] top-1/2 transform -translate-y-1/2 w-24 h-5 bg-gradient-to-l from-gray-800 to-gray-700 rounded shadow-md" style="clip-path: polygon(0 50%, 100% 0, 100% 100%)"></div>
+    </div>
+    
+    <!-- 센서 아이콘: 크기와 위치 조정 -->
+    <div class="sensor-icon group" style="top: 15%; left: 10%;">
+        <div class="w-7 h-7 rounded-full bg-red-100 flex items-center justify-center animate-pulse">
+            <i class="fas fa-fire-alt text-red-500 text-sm"></i>
+        </div>
+        <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute -top-14 left-0 p-2 bg-white rounded shadow-lg text-xs w-36 z-10">
+            <strong>과열 감지 센서</strong><br>
+            위험 온도 0.1초 내 감지
+        </div>
+    </div>
+    
+    <div class="sensor-icon group" style="top: 70%; left: 15%;">
+        <div class="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center animate-pulse" style="animation-delay: 0.5s">
+            <i class="fas fa-tint text-blue-500 text-sm"></i>
+        </div>
+        <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute -top-14 left-0 p-2 bg-white rounded shadow-lg text-xs w-36 z-10">
+            <strong>습도 센서</strong><br>
+            습도 변화 실시간 분석
+        </div>
+    </div>
+    
+    <div class="sensor-icon group" style="top: 25%; right: 15%;">
+        <div class="w-7 h-7 rounded-full bg-yellow-100 flex items-center justify-center animate-pulse" style="animation-delay: 1s">
+            <i class="fas fa-bolt text-yellow-500 text-sm"></i>
+        </div>
+        <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute -top-14 right-0 p-2 bg-white rounded shadow-lg text-xs w-36 z-10">
+            <strong>전류 분석 센서</strong><br>
+            미세 전류 변화 0.05초 감지
+        </div>
+    </div>
+    
+    <div class="sensor-icon group" style="top: 60%; right: 10%;">
+        <div class="w-7 h-7 rounded-full bg-purple-100 flex items-center justify-center animate-pulse" style="animation-delay: 1.5s">
+            <i class="fas fa-broadcast-tower text-purple-500 text-sm"></i>
+        </div>
+        <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute -top-14 right-0 p-2 bg-white rounded shadow-lg text-xs w-36 z-10">
+            <strong>무선 통신 모듈</strong><br>
+            실시간 데이터 전송 및 알림
+        </div>
+    </div>
+    
+    <!-- 데이터 흐름 애니메이션: 크기 조정은 SVG의 viewBox 속성으로 조절하지 않고 내부 요소들의 좌표를 조정 -->
+    <svg class="absolute top-0 left-0 w-full h-full pointer-events-none" viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg">
+        <!-- Data Flow Paths with Gradient -->
+        <defs>
+            <linearGradient id="dataFlow" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.2"/>
+                <stop offset="50%" stop-color="#1e40af" stop-opacity="0.7"/>
+                <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.2"/>
+            </linearGradient>
+            
+            <!-- Moving Dot Animation -->
+            <circle id="movingDot" r="2.4" fill="#1e40af">
+                <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite"/>
+            </circle>
+        </defs>
+        
+        <!-- 좌표값 20% 증가 -->
+        <path d="M48,60 Q120,84 180,108" stroke="url(#dataFlow)" stroke-width="2" stroke-linecap="round" fill="none">
+            <animate attributeName="stroke-dasharray" values="2,20;20,2" dur="3s" repeatCount="indefinite"/>
+        </path>
+        <use href="#movingDot">
+            <animateMotion dur="3s" repeatCount="indefinite" path="M48,60 Q120,84 180,108"/>
+        </use>
+        
+        <path d="M48,168 Q120,144 180,120" stroke="url(#dataFlow)" stroke-width="2" stroke-linecap="round" fill="none">
+            <animate attributeName="stroke-dasharray" values="2,20;20,2" dur="4s" repeatCount="indefinite"/>
+        </path>
+        <use href="#movingDot">
+            <animateMotion dur="4s" repeatCount="indefinite" path="M48,168 Q120,144 180,120"/>
+        </use>
+        
+        <path d="M312,72 Q240,84 180,108" stroke="url(#dataFlow)" stroke-width="2" stroke-linecap="round" fill="none">
+            <animate attributeName="stroke-dasharray" values="2,20;20,2" dur="3.5s" repeatCount="indefinite"/>
+        </path>
+        <use href="#movingDot">
+            <animateMotion dur="3.5s" repeatCount="indefinite" path="M312,72 Q240,84 180,108"/>
+        </use>
+        
+        <path d="M312,156 Q240,144 180,120" stroke="url(#dataFlow)" stroke-width="2" stroke-linecap="round" fill="none">
+            <animate attributeName="stroke-dasharray" values="2,20;20,2" dur="2.8s" repeatCount="indefinite"/>
+        </path>
+        <use href="#movingDot">
+            <animateMotion dur="2.8s" repeatCount="indefinite" path="M312,156 Q240,144 180,120"/>
+        </use>
+        
+        <!-- Cloud Connection Animation -->
+        <path d="M180,84 Q216,24 264,36" stroke="url(#dataFlow)" stroke-width="2" stroke-linecap="round" fill="none">
+            <animate attributeName="stroke-dasharray" values="2,20;20,2" dur="2.5s" repeatCount="indefinite"/>
+        </path>
+        <use href="#movingDot">
+            <animateMotion dur="2.5s" repeatCount="indefinite" path="M180,84 Q216,24 264,36"/>
+        </use>
+        
+        <!-- Cloud Icon: 위치와 크기 조정 -->
+        <g transform="translate(264,36) scale(0.72)">
+            <path d="M25,15 Q30,5 40,10 Q50,0 60,10 Q70,5 75,15 Q85,15 85,25 Q85,35 75,35 L25,35 Q15,35 15,25 Q15,15 25,15" fill="#e0f2fe" stroke="#3b82f6"/>
+            <text x="50" y="27" text-anchor="middle" fill="#1e40af" font-size="8">AI Cloud</text>
+        </g>
+    </svg>
+</div>
+
+<!-- Interaction Instruction -->
+<div class="mt-5 text-center text-sm text-gray-500 animate-bounce">
+    <i class="fas fa-mouse-pointer mr-1"></i> 센서 아이콘에 마우스를 올려 기능을 확인하세요
+</div>
+
+<style>
+.sensor-icon {
+    position: absolute;
+    z-index: 10;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.sensor-icon:hover {
+    transform: scale(1.2);
+}
+</style>
+                                
+                                <!-- Legend -->
+
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Features Tab Section -->
+        <section class="py-8 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8">핵심 기능 및 기술적 차별점</h2>
+                
+                <!-- Tabs Navigation - 개선된 버전 -->
+                <div class="mb-8">
+                    <h3 class="text-gray-700 mb-4 text-center font-medium">👇 아래 기능 탭을 클릭하여 세부 내용을 확인하세요</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3 mb-6">
+                        <button class="tab-button bg-white rounded-lg py-4 px-3 shadow-md border-l-4 border-primary text-primary font-medium text-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center justify-center h-24" data-tab-target="#tab-sensing">
+                            <i class="fas fa-microchip text-2xl mb-2"></i>
+                            <span>첨단 센싱 및 분석 기술</span>
+                        </button>
+                        <button class="tab-button bg-white rounded-lg py-4 px-3 shadow border-l-4 border-transparent text-gray-500 font-medium text-sm hover:text-primary hover:border-primary hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center justify-center h-24" data-tab-target="#tab-ai">
+                            <i class="fas fa-brain text-2xl mb-2"></i>
+                            <span>인공지능 기반 위험 예측</span>
+                        </button>
+                        <button class="tab-button bg-white rounded-lg py-4 px-3 shadow border-l-4 border-transparent text-gray-500 font-medium text-sm hover:text-primary hover:border-primary hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center justify-center h-24" data-tab-target="#tab-report">
+                            <i class="fas fa-chart-bar text-2xl mb-2"></i>
+                            <span>맞춤형 리포트 및 액션 가이드</span>
+                        </button>
+                        <button class="tab-button bg-white rounded-lg py-4 px-3 shadow border-l-4 border-transparent text-gray-500 font-medium text-sm hover:text-primary hover:border-primary hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center justify-center h-24" data-tab-target="#tab-ecosystem">
+                            <i class="fas fa-network-wired text-2xl mb-2"></i>
+                            <span>통합 생태계 연결성</span>
+                        </button>
+                        <button class="tab-button bg-white rounded-lg py-4 px-3 shadow border-l-4 border-transparent text-gray-500 font-medium text-sm hover:text-primary hover:border-primary hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col items-center justify-center h-24" data-tab-target="#tab-gamification">
+                            <i class="fas fa-trophy text-2xl mb-2"></i>
+                            <span>게이미피케이션</span>
+                        </button>
+                    </div>
+                    <div class="border-b border-gray-200"></div>
+                </div>
+                
+                <!-- Tab Content -->
+                <div>
+                    <!-- Tab 1: Sensing Technology -->
+                    <div class="tab-content block" id="tab-sensing">
+                        <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-8">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-4">첨단 센싱 및 분석 기술</h3>
+                                    <p class="text-gray-700 mb-6">
+                                        PLUG-SAFE+는 다양한 센서와 분석 기술을 통해 전기 사용 상태를 실시간으로 모니터링하고 위험 요소를 감지합니다. 일반 사용자가 눈으로 확인할 수 없는 전기적 이상 징후를 감지하여 사고를 미연에 방지합니다.
+                                    </p>
+                                    
+                                    <div class="space-y-6 mb-6">
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                                    <i class="fas fa-microchip text-xl"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ml-4">
+                                                <h4 class="text-lg font-medium text-gray-900">멀티모달 센싱 기술</h4>
+                                                <p class="mt-2 text-sm text-gray-500">
+                                                    전류/전압뿐 아니라 온도, 습도, 음향, 진동을 복합적으로 분석해 99.7% 정확도로 위험을 감지합니다.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                                    <i class="fas fa-bolt text-xl"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ml-4">
+                                                <h4 class="text-lg font-medium text-gray-900">초정밀 전류 모니터링</h4>
+                                                <p class="mt-2 text-sm text-gray-500">
+                                                    0.1초 단위 전류 변동 측정을 통한 아크 감지 (기존 누전차단기 대비 90% 빠른 반응)
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                                    <i class="fas fa-temperature-high text-xl"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ml-4">
+                                                <h4 class="text-lg font-medium text-gray-900">환경 인지 시스템</h4>
+                                                <p class="mt-2 text-sm text-gray-500">
+                                                    습도·온도 센서 내장으로 욕실/주방 등 환경별 위험도 가중치 자동 적용
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                                    <i class="fas fa-server text-xl"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ml-4">
+                                                <h4 class="text-lg font-medium text-gray-900">엣지 AI 처리</h4>
+                                                <p class="mt-2 text-sm text-gray-500">
+                                                    클라우드 의존 없이 현장에서 0.05초 내 위험 감지 (기존 솔루션 대비 20배 빠름)
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-center">
+                                    <div class="relative w-full max-w-md">
+                                        <!-- Main Device Illustration -->
+                                        <div class="bg-gray-100 rounded-lg p-4 relative">
+                                            <div class="text-center mb-4">
+                                                <span class="font-bold text-gray-700">멀티센서 기술</span>
+                                            </div>
+                                            <div class="w-full h-64 bg-white rounded-lg shadow-md flex items-center justify-center relative">
+                                                <div class="w-32 h-32 bg-primary rounded-full flex items-center justify-center">
+                                                    <div class="w-24 h-24 bg-blue-200 rounded-full flex items-center justify-center">
+                                                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                                                            <i class="fas fa-bolt text-primary text-3xl"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Sensor Icons -->
+                                                <div class="absolute top-6 left-8 p-2 bg-white rounded-full shadow-lg">
+                                                    <i class="fas fa-thermometer-half text-red-500 text-xl"></i>
+                                                </div>
+                                                <div class="absolute top-1/2 left-6 transform -translate-y-1/2 p-2 bg-white rounded-full shadow-lg">
+                                                    <i class="fas fa-tint text-blue-500 text-xl"></i>
+                                                </div>
+                                                <div class="absolute bottom-6 left-10 p-2 bg-white rounded-full shadow-lg">
+                                                    <i class="fas fa-volume-up text-green-500 text-xl"></i>
+                                                </div>
+                                                <div class="absolute top-8 right-10 p-2 bg-white rounded-full shadow-lg">
+                                                    <i class="fas fa-wifi text-purple-500 text-xl"></i>
+                                                </div>
+                                                <div class="absolute top-1/2 right-6 transform -translate-y-1/2 p-2 bg-white rounded-full shadow-lg">
+                                                    <i class="fas fa-sync text-yellow-500 text-xl"></i>
+                                                </div>
+                                                <div class="absolute bottom-8 right-8 p-2 bg-white rounded-full shadow-lg">
+                                                    <i class="fas fa-microchip text-gray-700 text-xl"></i>
+                                                </div>
+                                                
+                                                <!-- Connection Lines -->
+                                                <svg class="absolute inset-0 w-full h-full" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+                                                    <line x1="80" y1="40" x2="150" y2="100" stroke="#d1d5db" stroke-width="2" stroke-dasharray="4" />
+                                                    <line x1="50" y1="100" x2="150" y2="100" stroke="#d1d5db" stroke-width="2" stroke-dasharray="4" />
+                                                    <line x1="80" y1="160" x2="150" y2="100" stroke="#d1d5db" stroke-width="2" stroke-dasharray="4" />
+                                                    <line x1="220" y1="50" x2="150" y2="100" stroke="#d1d5db" stroke-width="2" stroke-dasharray="4" />
+                                                    <line x1="250" y1="100" x2="150" y2="100" stroke="#d1d5db" stroke-width="2" stroke-dasharray="4" />
+                                                    <line x1="220" y1="150" x2="150" y2="100" stroke="#d1d5db" stroke-width="2" stroke-dasharray="4" />
+                                                </svg>
+                                            </div>
+                                            <div class="mt-4 text-center">
+                                                <span class="text-sm text-gray-600">0.05초 내 데이터 분석 및 위험 감지</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab 2: AI Prediction -->
+                    <div class="tab-content hidden" id="tab-ai">
+                        <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-8">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-4">인공지능 기반 위험 예측</h3>
+                                    <p class="text-gray-700 mb-6">
+                                        PLUG-SAFE+는 최신 인공지능 기술을 활용하여 전기 사용 패턴을 학습하고 위험 요소를 사전에 예측합니다. 심층 학습(Deep Learning) 알고리즘을 통해 사용자별 맞춤형 위험 예측 및 대응이 가능합니다.
+                                    </p>
+                                    
+                                    <div class="space-y-6 mb-6">
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                                    <i class="fas fa-brain text-xl"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ml-4">
+                                                <h4 class="text-lg font-medium text-gray-900">딥러닝 기반 아크 탐지</h4>
+                                                <p class="mt-2 text-sm text-gray-500">
+                                                    미세한 아크 패턴도 감지하는 CNN+LSTM 하이브리드 모델 적용
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                                    <i class="fas fa-user-cog text-xl"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ml-4">
+                                                <h4 class="text-lg font-medium text-gray-900">개인화 알고리즘</h4>
+                                                <p class="mt-2 text-sm text-gray-500">
+                                                    각 가정별 사용 패턴 학습으로 오탐지율 0.1% 이하 달성
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                                    <i class="fas fa-exclamation-triangle text-xl"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ml-4">
+                                                <h4 class="text-lg font-medium text-gray-900">이상패턴 사전 감지</h4>
+                                                <p class="mt-2 text-sm text-gray-500">
+                                                    고장 발생 평균 72시간 전 위험 요소 사전 경고
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                                    <i class="fas fa-project-diagram text-xl"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ml-4">
+                                                <h4 class="text-lg font-medium text-gray-900">디지털 트윈 시스템</h4>
+                                                <p class="mt-2 text-sm text-gray-500">
+                                                    가정 내 전기 네트워크 디지털 모델 구축 및 위험 시뮬레이션
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-center">
+                                    <div class="relative w-full max-w-md">
+                                        <!-- AI Prediction Visualization -->
+                                        <div class="bg-gray-100 rounded-lg p-4">
+                                            <div class="text-center mb-4">
+                                                <span class="font-bold text-gray-700">AI 위험 예측 시스템</span>
+                                            </div>
+                                            <div class="w-full h-64 bg-white rounded-lg shadow-md p-4 relative">
+                                                <!-- Graph Background -->
+                                                <div class="absolute inset-0 p-4">
+                                                    <div class="h-full w-full grid grid-cols-6 grid-rows-6">
+                                                        <div class="col-span-6 row-span-6 border-l border-b border-gray-200"></div>
+                                                        <!-- Grid Lines -->
+                                                        <div class="col-span-6 row-span-1 border-t border-gray-100"></div>
+                                                        <div class="col-span-6 row-span-1 border-t border-gray-100"></div>
+                                                        <div class="col-span-6 row-span-1 border-t border-gray-100"></div>
+                                                        <div class="col-span-6 row-span-1 border-t border-gray-100"></div>
+                                                        <div class="col-span-6 row-span-1 border-t border-gray-100"></div>
+                                                        
+                                                        <div class="col-span-1 row-span-6 border-r border-gray-100"></div>
+                                                        <div class="col-span-1 row-span-6 border-r border-gray-100"></div>
+                                                        <div class="col-span-1 row-span-6 border-r border-gray-100"></div>
+                                                        <div class="col-span-1 row-span-6 border-r border-gray-100"></div>
+                                                        <div class="col-span-1 row-span-6 border-r border-gray-100"></div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Power Usage Line -->
+                                                <svg class="absolute inset-0 w-full h-full" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+                                                    <!-- Normal Usage Pattern -->
+                                                    <path d="M30,150 C50,140 70,145 90,135 C110,125 130,120 150,130 C170,140 190,150 210,140 C230,130 250,120 270,130" 
+                                                          stroke="#3b82f6" stroke-width="3" fill="none" />
+                                                    
+                                                    <!-- Danger Zone -->
+                                                    <path d="M0,60 L300,60" stroke="#dc2626" stroke-width="1" stroke-dasharray="4" fill="none" />
+                                                    <text x="200" y="55" font-size="10" fill="#dc2626">위험 임계값</text>
+                                                    
+                                                    <!-- Abnormal Pattern -->
+                                                    <path d="M210,140 C230,110 240,70 260,50 C280,30 290,20 300,40" 
+                                                          stroke="#dc2626" stroke-width="3" fill="none" />
+                                                    
+                                                    <!-- Prediction Area -->
+                                                    <path d="M210,140 C230,130 240,125 250,120" 
+                                                          stroke="#9ca3af" stroke-width="2" stroke-dasharray="4" fill="none" />
+                                                    
+                                                    <!-- Warning Point -->
+                                                    <circle cx="210" cy="140" r="5" fill="#fbbf24" />
+                                                    <text x="180" y="125" font-size="10" fill="#1e40af">위험 감지 시점</text>
+                                                    
+                                                    <!-- Critical Point -->
+                                                    <circle cx="250" cy="60" r="5" fill="#dc2626" />
+                                                    <text x="190" y="40" font-size="10" fill="#dc2626">사고 발생 시점</text>
+                                                    
+                                                    <!-- Time Label -->
+                                                    <!--text x="200" y="190" font-size="10" fill="#6b7280">72시간 전 예측</text>
+                                                    <path d="M210,140 L260,50" stroke="#fbbf24" stroke-width="1" stroke-dasharray="2" fill="none" /-->
+                                                </svg>
+                                            </div>
+                                            <div class="mt-4 text-center">
+                                                <span class="text-sm text-gray-600">AI 기반 이상 패턴 사전 감지 (72시간 전)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab 3: Custom Reports -->
+                    <div class="tab-content hidden" id="tab-report">
+                        <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-8">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-4">맞춤형 리포트 및 액션 가이드</h3>
+                                    <p class="text-gray-700 mb-6">
+                                        PLUG-SAFE+는 수집된 데이터를 분석하여 사용자별 맞춤형 안전 리포트와 액션 가이드를 제공합니다. 단순한 경고에 그치지 않고, 구체적인 개선 방안과 실천 가이드를 통해 실질적인 안전 향상을 도모합니다.
+                                    </p>
+                                    
+                                    <div class="space-y-6 mb-6">
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                                    <i class="fas fa-chart-bar text-xl"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ml-4">
+                                                <h4 class="text-lg font-medium text-gray-900">주간 안전 리포트</h4>
+                                                <p class="mt-2 text-sm text-gray-500">
+                                                    상위 3개 위험 기기 사용 패턴 및 개선 제안 제공
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                                    <i class="fas fa-lightbulb text-xl"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ml-4">
+                                                <h4 class="text-lg font-medium text-gray-900">절약 가이드</h4>
+                                                <p class="mt-2 text-sm text-gray-500">
+                                                    절약 가능 전력량 계산 및 절전 가이드 제공
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                                    <i class="fas fa-bell text-xl"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ml-4">
+                                                <h4 class="text-lg font-medium text-gray-900">위험 패턴 알림</h4>
+                                                <p class="mt-2 text-sm text-gray-500">
+                                                    습관적 위험 행동 패턴 분석 및 개선 제안
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                                    <i class="fas fa-map-marked-alt text-xl"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ml-4">
+                                                <h4 class="text-lg font-medium text-gray-900">공간별 안전 지도</h4>
+                                                <p class="mt-2 text-sm text-gray-500">
+                                                    가정 내 전기안전 위험도 맵핑 및 개선점 제안
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-center">
+                                    <div class="w-full max-w-md">
+                                        <!-- Mobile App Screenshot Mockup -->
+                                        <div class="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl">
+                                            <div class="w-[148px] h-[18px] bg-gray-800 top-0 rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute"></div>
+                                            <div class="h-[32px] w-[3px] bg-gray-800 absolute -left-[17px] top-[72px] rounded-l-lg"></div>
+                                            <div class="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
+                                            <div class="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[178px] rounded-l-lg"></div>
+                                            <div class="h-[64px] w-[3px] bg-gray-800 absolute -right-[17px] top-[142px] rounded-r-lg"></div>
+                                            <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white">
+                                                <!-- App UI -->
+                                                <div class="w-full h-full relative">
+                                                    <!-- Header -->
+                                                    <div class="bg-primary text-white p-4 flex items-center justify-between">
+                                                        <div class="text-lg font-bold">PLUG-SAFE+</div>
+                                                        <div class="flex space-x-2">
+                                                            <i class="fas fa-bell"></i>
+                                                            <i class="fas fa-cog"></i>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <!-- Safety Report Screen -->
+                                                    <div class="p-4">
+                                                        <h3 class="font-bold text-lg text-gray-900">주간 안전 리포트</h3>
+                                                        <p class="text-sm text-gray-500 mb-4">2025년 5월 1일 - 5월 7일</p>
+                                                        
+                                                        <!-- Safety Score -->
+                                                        <div class="bg-blue-50 rounded-lg p-4 mb-4 flex justify-between items-center">
+                                                            <div>
+                                                                <p class="text-sm text-gray-700">안전 점수</p>
+                                                                <p class="text-2xl font-bold text-primary">87</p>
+                                                            </div>
+                                                            <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
+                                                                <i class="fas fa-shield-alt text-2xl text-primary"></i>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <!-- Risk Items -->
+                                                        <div class="mb-4">
+                                                            <h4 class="font-medium text-gray-900 mb-2">주요 위험 기기</h4>
+                                                            
+                                                            <div class="space-y-3">
+                                                                <div class="border rounded-lg p-3">
+                                                                    <div class="flex justify-between items-center">
+                                                                        <div class="flex items-center">
+                                                                            <div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center mr-2">
+                                                                                <i class="fas fa-plug text-red-500"></i>
+                                                                            </div>
+                                                                            <span class="font-medium text-gray-900">거실 전기히터</span>
+                                                                        </div>
+                                                                        <span class="text-red-500 font-medium">위험</span>
+                                                                    </div>
+                                                                    <p class="text-xs text-gray-500 mt-1">5시간 이상 연속 사용으로 과열 위험</p>
+                                                                    <div class="mt-2 text-xs bg-red-50 text-red-700 p-2 rounded">
+                                                                        <i class="fas fa-lightbulb mr-1"></i>
+                                                                        <span>권장: 3시간 사용 후 30분 휴식</span>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <div class="border rounded-lg p-3">
+                                                                    <div class="flex justify-between items-center">
+                                                                        <div class="flex items-center">
+                                                                            <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center mr-2">
+                                                                                <i class="fas fa-bolt text-yellow-500"></i>
+                                                                            </div>
+                                                                            <span class="font-medium text-gray-900">주방 멀티탭</span>
+                                                                        </div>
+                                                                        <span class="text-yellow-500 font-medium">주의</span>
+                                                                    </div>
+                                                                    <p class="text-xs text-gray-500 mt-1">4개 기기 동시 사용으로 과부하 위험</p>
+                                                                    <div class="mt-2 text-xs bg-yellow-50 text-yellow-700 p-2 rounded">
+                                                                        <i class="fas fa-lightbulb mr-1"></i>
+                                                                        <span>권장: 고출력 기기 분산 사용</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <!-- Energy Saving -->
+                                                        <div class="bg-green-50 rounded-lg p-3 mb-4">
+                                                            <h4 class="font-medium text-gray-900 flex items-center">
+                                                                <i class="fas fa-leaf text-green-500 mr-2"></i>
+                                                                <span>절약 가능 전력량</span>
+                                                            </h4>
+                                                            <p class="text-2xl font-bold text-green-600 mt-1">월 5,800원</p>
+                                                            <p class="text-xs text-gray-600 mt-1">대기전력 최적화로 연간 69,600원 절약 가능</p>
+                                                        </div>
+                                                        
+                                                        <!-- Safety Tips -->
+                                                        <div class="border-t pt-3">
+                                                            <h4 class="font-medium text-gray-900 mb-2">이번 주 안전 팁</h4>
+                                                            <div class="text-xs text-gray-600">
+                                                                <p>욕실 멀티탭을 안전한 곳으로 이동하세요. 습기가 많은 환경에서 누전 위험이 높습니다.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab 4: Ecosystem Connectivity -->
+                    <div class="tab-content hidden" id="tab-ecosystem">
+                        <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-8">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-4">통합 생태계 연결성</h3>
+                                    <p class="text-gray-700 mb-6">
+                                        PLUG-SAFE+는 단독 솔루션이 아닌 통합 생태계 플랫폼으로 설계되었습니다. 다양한 스마트홈 기기 및 서비스와 호환되며, 개방형 API를 통해 확장성을 제공합니다. 이를 통해 전기안전뿐만 아니라 에너지 효율화, 편의성 향상 등 종합적인 가치를 제공합니다.
+                                    </p>
+                                    
+                                    <div class="space-y-6 mb-6">
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                                    <i class="fas fa-network-wired text-xl"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ml-4">
+                                                <h4 class="text-lg font-medium text-gray-900">Matter/Thread 표준 지원</h4>
+                                                <p class="mt-2 text-sm text-gray-500">
+                                                    300+ 스마트홈 브랜드와 호환되는 통합 에코시스템 구축
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                                    <i class="fas fa-microphone-alt text-xl"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ml-4">
+                                                <h4 class="text-lg font-medium text-gray-900">음성비서 연동</h4>
+                                                <p class="mt-2 text-sm text-gray-500">
+                                                    구글 어시스턴트, 빅스비, 시리, 알렉사 등 주요 AI 음성비서와 호환
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                                    <i class="fas fa-broadcast-tower text-xl"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ml-4">
+                                                <h4 class="text-lg font-medium text-gray-900">스마트그리드 준비</h4>
+                                                <p class="mt-2 text-sm text-gray-500">
+                                                    미래 스마트그리드 연동을 위한 표준 프로토콜 지원
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                                    <i class="fas fa-code text-xl"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ml-4">
+                                                <h4 class="text-lg font-medium text-gray-900">오픈 API</h4>
+                                                <p class="mt-2 text-sm text-gray-500">
+                                                    서드파티 개발자를 위한 확장 플랫폼 지원
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-center">
+                                    <div class="relative w-full max-w-md">
+                                        <!-- Ecosystem Visualization -->
+                                        <div class="bg-gray-100 rounded-lg p-4">
+                                            <div class="text-center mb-4">
+                                                <span class="font-bold text-gray-700">통합 생태계 구성도</span>
+                                            </div>
+                                            <div class="w-full h-64 bg-white rounded-lg shadow-md p-4 relative">
+       <!-- Connection Lines -->
+                                                <svg class="absolute inset-0 w-full h-full" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+                                                    <line x1="75" y1="50" x2="150" y2="100" stroke="#1e40af" stroke-width="2" stroke-dasharray="4" />
+                                                    <line x1="225" y1="50" x2="150" y2="100" stroke="#1e40af" stroke-width="2" stroke-dasharray="4" />
+                                                    <line x1="75" y1="150" x2="150" y2="100" stroke="#1e40af" stroke-width="2" stroke-dasharray="4" />
+                                                    <line x1="225" y1="150" x2="150" y2="100" stroke="#1e40af" stroke-width="2" stroke-dasharray="4" />
+                                                </svg>
+
+
+                                                <!-- PLUG-SAFE+ at center -->
+                                                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                                    <div class="w-24 h-24 bg-primary rounded-full flex items-center justify-center z-10">
+                                                        <span class="text-white font-bold text-xs text-center">PLUG-SAFE+</span>
+                                                    </div>
+                                                </div>
+                                                
+                
+                                         
+
+                                                <!-- Connected Systems -->
+                                                <div class="absolute top-1/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2">
+                                                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                                                        <i class="fas fa-home text-primary text-xl"></i>
+                                                    </div>
+                                                    <div class="mt-1 text-center">
+                                                        <span class="text-xs font-medium">스마트홈</span>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="absolute top-1/4 right-1/4 transform translate-x-1/2 -translate-y-1/2">
+                                                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+                                                        <i class="fas fa-leaf text-green-600 text-xl"></i>
+                                                    </div>
+                                                    <div class="mt-1 text-center">
+                                                        <span class="text-xs font-medium">에너지</span>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="absolute bottom-1/4 left-1/4 transform -translate-x-1/2 translate-y-1/2">
+                                                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center">
+                                                        <i class="fas fa-mobile-alt text-yellow-600 text-xl"></i>
+                                                    </div>
+                                                    <div class="mt-1 text-center">
+                                                        <span class="text-xs font-medium">모바일앱</span>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="absolute bottom-1/4 right-1/4 transform translate-x-1/2 translate-y-1/2">
+                                                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center">
+                                                        <i class="fas fa-microphone text-purple-600 text-xl"></i>
+                                                    </div>
+                                                    <div class="mt-1 text-center">
+                                                        <span class="text-xs font-medium">음성비서</span>
+                                                    </div>
+                                                </div>
+                                
+                                                
+                                                <!-- Matter/Thread Branding -->
+                                                <div class="absolute top-2 right-2 bg-blue-50 rounded p-1 text-xs text-blue-600 font-medium">
+                                                    Matter/Thread 호환
+                                                </div>
+                                            </div>
+                                            <div class="mt-4 text-center">
+                                                <span class="text-sm text-gray-600">300+ 스마트홈 브랜드와 호환</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab 5: Gamification -->
+                    <div class="tab-content hidden" id="tab-gamification">
+                        <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-8">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-4">게이미피케이션 및 행동 변화 유도</h3>
+                                    <p class="text-gray-700 mb-6">
+                                        PLUG-SAFE+는 게이미피케이션 요소를 통해 사용자의 능동적인 참여와 행동 변화를 유도합니다. 단순한 경고와 알림에 그치지 않고, 재미있고 보람된 경험을 통해 전기안전 실천을 습관화하도록 합니다.
+                                    </p>
+                                    
+                                    <div class="space-y-6 mb-6">
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                                    <i class="fas fa-coins text-xl"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ml-4">
+                                                <h4 class="text-lg font-medium text-gray-900">안전 포인트 시스템</h4>
+                                                <p class="mt-2 text-sm text-gray-500">
+                                                    안전 사용 일수 누적 시 전기요금 할인 쿠폰 제공
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                                    <i class="fas fa-trophy text-xl"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ml-4">
+                                                <h4 class="text-lg font-medium text-gray-900">지역 안전 챌린지</h4>
+                                                <p class="mt-2 text-sm text-gray-500">
+                                                    SNS 연동을 통한 지역별 안전 순위 경쟁 유도
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                                    <i class="fas fa-users text-xl"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ml-4">
+                                                <h4 class="text-lg font-medium text-gray-900">가족 안전 미션</h4>
+                                                <p class="mt-2 text-sm text-gray-500">
+                                                    가족 구성원별 안전 미션 제공 및 달성 보상
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                                    <i class="fas fa-chart-line text-xl"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ml-4">
+                                                <h4 class="text-lg font-medium text-gray-900">주간 안전 스코어</h4>
+                                                <p class="mt-2 text-sm text-gray-500">
+                                                    전기 사용 패턴에 따른 안전 점수 산출 및 개선 게임화
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-center">
+                                    <div class="relative w-full max-w-md">
+                                        <!-- Gamification UI Mockup -->
+                                        <div class="bg-gray-100 rounded-lg p-4">
+                                            <div class="text-center mb-4">
+                                                <span class="font-bold text-gray-700">안전 점수 & 미션 시스템</span>
+                                            </div>
+                                            <div class="w-full h-64 bg-white rounded-lg shadow-md p-4 relative">
+                                                <!-- Header -->
+                                                <div class="flex justify-between items-center mb-4">
+                                                    <h3 class="font-bold text-primary">안전 챌린지</h3>
+                                                    <div class="flex items-center">
+                                                        <i class="fas fa-coins text-yellow-500 mr-1"></i>
+                                                        <span class="text-sm font-medium">1,250 포인트</span>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Safety Score -->
+                                                <div class="mb-4">
+                                                    <div class="flex justify-between items-center mb-1">
+                                                        <span class="text-sm font-medium">안전 점수</span>
+                                                        <span class="text-sm font-medium">87/100</span>
+                                                    </div>
+                                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                        <div class="bg-primary h-2.5 rounded-full" style="width: 87%"></div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Achievements -->
+                                                <div class="mb-4">
+                                                    <h4 class="text-sm font-medium mb-2">획득한 배지</h4>
+                                                    <div class="flex space-x-2">
+                                                        <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                                                            <i class="fas fa-shield-alt text-primary"></i>
+                                                        </div>
+                                                        <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                                                            <i class="fas fa-leaf text-green-600"></i>
+                                                        </div>
+                                                        <div class="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center">
+                                                            <i class="fas fa-bolt text-yellow-600"></i>
+                                                        </div>
+                                                        <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-400">
+                                                            <i class="fas fa-lock"></i>
+                                                        </div>
+                                                        <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-400">
+                                                            <i class="fas fa-lock"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Active Missions -->
+                                                <div>
+                                                    <h4 class="text-sm font-medium mb-2">진행 중인 미션</h4>
+                                                    <div class="space-y-2">
+                                                        <div class="bg-blue-50 p-2 rounded-lg flex justify-between items-center">
+                                                            <div class="flex items-center">
+                                                                <i class="fas fa-tasks text-primary mr-2"></i>
+                                                                <span class="text-xs">7일 연속 안전 사용</span>
+                                                            </div>
+                                                            <div class="text-xs font-medium">5/7</div>
+                                                        </div>
+                                                        <div class="bg-green-50 p-2 rounded-lg flex justify-between items-center">
+                                                            <div class="flex items-center">
+                                                                <i class="fas fa-lightbulb text-green-600 mr-2"></i>
+                                                                <span class="text-xs">대기전력 10% 줄이기</span>
+                                                            </div>
+                                                            <div class="text-xs font-medium">7%</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Leaderboard Preview -->
+                                                <div class="absolute bottom-4 right-4">
+                                                    <button class="flex items-center bg-primary text-white text-xs py-1 px-2 rounded">
+                                                        <i class="fas fa-trophy mr-1"></i>
+                                                        <span>우리 지역 순위보기</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="mt-4 text-center">
+                                                <span class="text-sm text-gray-600">게이미피케이션으로 즐거운 안전 실천</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- User Scenarios Section -->
+        <section class="py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8">사용자 시나리오</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <!-- Scenario 1 -->
+                    <div data-aos="fade-up" data-aos-delay="100" class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-female text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900">1인 가구 직장인 김미나(32세)</h3>
+                                    <p class="text-sm text-gray-500">출퇴근 시간 불규칙, 다수 전자기기 동시 사용</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 rounded-lg p-3 mb-4">
+                                <h4 class="font-medium text-gray-900 text-sm mb-1">주요 위험 요소</h4>
+                                <ul class="space-y-1 text-sm text-gray-700">
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-primary mt-0.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span>충전기 과열, 여러 전자기기 동시 사용으로 인한 과부하</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h4 class="font-medium text-gray-900 text-sm mb-2">PLUG-SAFE+ 활용</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-green-500 mt-0.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span class="text-gray-700">스마트폰으로 외출 시에도 전기 상태 모니터링</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-green-500 mt-0.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span class="text-gray-700">충전 완료된 기기 자동 전원 차단</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-green-500 mt-0.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span class="text-gray-700">귀가 전 원격으로 에어컨 안전 상태 확인</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-3 rounded-lg">
+                                <h4 class="font-medium text-gray-900 text-sm mb-1">효과</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li class="flex items-center">
+                                        <svg class="h-4 w-4 text-primary mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span class="text-gray-700">외출 시 위험기기 자동 차단, 과부하 위험 <strong class="text-primary">87% 감소</strong></span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="h-4 w-4 text-primary mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span class="text-gray-700">월 전기요금 <strong class="text-primary">5,800원 절감</strong></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Scenario 2 -->
+                    <div data-aos="fade-up" data-aos-delay="200" class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-user-friends text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900">고령 부부 이종호(75세), 박순자(72세)</h3>
+                                    <p class="text-sm text-gray-500">디지털 활용도 낮음, 노후 전기설비 사용</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 rounded-lg p-3 mb-4">
+                                <h4 class="font-medium text-gray-900 text-sm mb-1">주요 위험 요소</h4>
+                                <ul class="space-y-1 text-sm text-gray-700">
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-primary mt-0.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span>노후 가전제품 과열, 장시간 전열기기 사용</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h4 class="font-medium text-gray-900 text-sm mb-2">PLUG-SAFE+ 활용</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-green-500 mt-0.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span class="text-gray-700">음성 안내 기반 간편 조작</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-green-500 mt-0.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span class="text-gray-700">전기장판, 온열기 8시간 이상 사용 시 자동 알림</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-green-500 mt-0.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span class="text-gray-700">가족 앱 연동으로 자녀가 원격 모니터링</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-3 rounded-lg">
+                                <h4 class="font-medium text-gray-900 text-sm mb-1">효과</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li class="flex items-center">
+                                        <svg class="h-4 w-4 text-primary mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span class="text-gray-700">음성 안내 시스템으로 접근성 향상</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="h-4 w-4 text-primary mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span class="text-gray-700">화재 위험 <strong class="text-primary">91% 감소</strong>, 자녀 안심 효과</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Scenario 3 -->
+                    <div data-aos="fade-up" data-aos-delay="300" class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-users text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900">맞벌이 가정 최재현(41세), 정소영(39세), 자녀(8세, 5세)</h3>
+                                    <p class="text-sm text-gray-500">맞벌이로 아이들만 있는 시간 발생, 다양한 가전제품 사용</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 rounded-lg p-3 mb-4">
+                                <h4 class="font-medium text-gray-900 text-sm mb-1">주요 위험 요소</h4>
+                                <ul class="space-y-1 text-sm text-gray-700">
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-primary mt-0.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span>어린이 전기 사고, 동시간대 전력 과부하</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h4 class="font-medium text-gray-900 text-sm mb-2">PLUG-SAFE+ 활용</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-green-500 mt-0.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span class="text-gray-700">어린이 안전모드로 위험 콘센트 자동 차단</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-green-500 mt-0.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span class="text-gray-700">피크타임 전력 사용 분산 가이드</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-green-500 mt-0.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span class="text-gray-700">가족 안전 미션으로 안전 교육</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-3 rounded-lg">
+                                <h4 class="font-medium text-gray-900 text-sm mb-1">효과</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li class="flex items-center">
+                                        <svg class="h-4 w-4 text-primary mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span class="text-gray-700">어린이 전기 안전사고 위험 <strong class="text-primary">95% 감소</strong></span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="h-4 w-4 text-primary mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span class="text-gray-700">에너지 사용 최적화로 월 <strong class="text-primary">7,200원 절감</strong></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Scenario 4 -->
+                    <div data-aos="fade-up" data-aos-delay="400" class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-store text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900">카페 운영 소상공인 윤서진(44세)</h3>
+                                    <p class="text-sm text-gray-500">에스프레소 머신, 그라인더 등 고출력 기기 다수 사용</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 rounded-lg p-3 mb-4">
+                                <h4 class="font-medium text-gray-900 text-sm mb-1">주요 위험 요소</h4>
+                                <ul class="space-y-1 text-sm text-gray-700">
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-primary mt-0.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span>피크타임 전력 과부하, 노후 전선 과열</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h4 class="font-medium text-gray-900 text-sm mb-2">PLUG-SAFE+ 활용</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-green-500 mt-0.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span class="text-gray-700">시간대별 전력 사용 패턴 분석</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-green-500 mt-0.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span class="text-gray-700">과부하 위험 시 기기별 사용 순서 가이드</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-green-500 mt-0.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span class="text-gray-700">노후 전선 교체 시기 알림</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-3 rounded-lg">
+                                <h4 class="font-medium text-gray-900 text-sm mb-1">효과</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li class="flex items-center">
+                                        <svg class="h-4 w-4 text-primary mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span class="text-gray-700">피크타임 과부하 위험 <strong class="text-primary">82% 감소</strong></span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="h-4 w-4 text-primary mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span class="text-gray-700">월 전기요금 <strong class="text-primary">12.7% 절감</strong>, 장비 수명 15% 연장</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Hardware and Software Design Section -->
+        <section class="py-8 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8">하드웨어 및 소프트웨어 설계</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <!-- Hardware Specs -->
+                    <div data-aos="fade-up" data-aos-delay="100" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center mb-6">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                        <i class="fas fa-microchip text-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-xl font-bold text-gray-900">하드웨어 상세 스펙</h3>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-center border-b border-gray-100 pb-3">
+                                    <div class="w-1/3 text-sm font-medium text-gray-500">크기</div>
+                                    <div class="w-2/3 text-sm text-gray-900">8cm x 5cm (기존 멀티탭과 유사)</div>
+                                </div>
+                                <div class="flex items-center border-b border-gray-100 pb-3">
+                                    <div class="w-1/3 text-sm font-medium text-gray-500">내장 센서</div>
+                                    <div class="w-2/3 text-sm text-gray-900">전류/전압 센서, 온도/습도 센서, 아크 감지 센서, 음향/진동 센서</div>
+                                </div>
+                                <div class="flex items-center border-b border-gray-100 pb-3">
+                                    <div class="w-1/3 text-sm font-medium text-gray-500">통신</div>
+                                    <div class="w-2/3 text-sm text-gray-900">Wi-Fi/블루투스/Matter 호환 모듈</div>
+                                </div>
+                                <div class="flex items-center border-b border-gray-100 pb-3">
+                                    <div class="w-1/3 text-sm font-medium text-gray-500">전원 제어</div>
+                                    <div class="w-2/3 text-sm text-gray-900">내장 릴레이로 위험 감지 시 0.5초 내 자동 차단</div>
+                                </div>
+                                <div class="flex items-center border-b border-gray-100 pb-3">
+                                    <div class="w-1/3 text-sm font-medium text-gray-500">프로세서</div>
+                                    <div class="w-2/3 text-sm text-gray-900">엣지 AI 처리용 저전력 신경망 가속 칩셋</div>
+                                </div>
+                                <div class="flex items-center border-b border-gray-100 pb-3">
+                                    <div class="w-1/3 text-sm font-medium text-gray-500">배터리</div>
+                                    <div class="w-2/3 text-sm text-gray-900">비상 전원 공급용 리튬 배터리 내장 (최대 12시간 작동)</div>
+                                </div>
+                                <div class="flex items-center border-b border-gray-100 pb-3">
+                                    <div class="w-1/3 text-sm font-medium text-gray-500">표시등</div>
+                                    <div class="w-2/3 text-sm text-gray-900">상태 표시 LED + E-잉크 디스플레이 (저전력 상태 표시)</div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-1/3 text-sm font-medium text-gray-500">오디오</div>
+                                    <div class="w-2/3 text-sm text-gray-900">내장 스피커로 위험 경고 및 음성 안내</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Software Platform -->
+                    <div data-aos="fade-up" data-aos-delay="200" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center mb-6">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                        <i class="fas fa-code text-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-xl font-bold text-gray-900">소프트웨어 플랫폼</h3>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-center border-b border-gray-100 pb-3">
+                                    <div class="w-1/3 text-sm font-medium text-gray-500">모바일 앱</div>
+                                    <div class="w-2/3 text-sm text-gray-900">iOS/Android 호환 (직관적 대시보드)</div>
+                                </div>
+                                <div class="flex items-center border-b border-gray-100 pb-3">
+                                    <div class="w-1/3 text-sm font-medium text-gray-500">알림 시스템</div>
+                                    <div class="w-2/3 text-sm text-gray-900">푸시 알림, 음성 경고, 문자 메시지 연동</div>
+                                </div>
+                                <div class="flex items-center border-b border-gray-100 pb-3">
+                                    <div class="w-1/3 text-sm font-medium text-gray-500">AI 학습 모델</div>
+                                    <div class="w-2/3 text-sm text-gray-900">LSTM 네트워크 기반 사용 패턴 학습 + 상황인지 알고리즘</div>
+                                </div>
+                                <div class="flex items-center border-b border-gray-100 pb-3">
+                                    <div class="w-1/3 text-sm font-medium text-gray-500">데이터 분석</div>
+                                    <div class="w-2/3 text-sm text-gray-900">시간대별, 기기별 전력 소비 분석 및 예측 시스템</div>
+                                </div>
+                                <div class="flex items-center border-b border-gray-100 pb-3">
+                                    <div class="w-1/3 text-sm font-medium text-gray-500">클라우드 서버</div>
+                                    <div class="w-2/3 text-sm text-gray-900">개인정보 보호를 위한 차등적 프라이버시(Differential Privacy) 적용</div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-1/3 text-sm font-medium text-gray-500">API 생태계</div>
+                                    <div class="w-2/3 text-sm text-gray-900">외부 서비스 및 앱 연동을 위한 개방형 API</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Security & Privacy -->
+                    <div data-aos="fade-up" data-aos-delay="300" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center mb-6">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                        <i class="fas fa-shield-alt text-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-xl font-bold text-gray-900">보안 및 개인정보 보호 전략</h3>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <h4 class="text-base font-medium text-gray-700 border-b border-gray-100 pb-2 mb-3">다층적 보안 아키텍처</h4>
+                                <ul class="space-y-2 mb-5">
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span class="text-sm text-gray-700">하드웨어 보안 모듈(HSM): 물리적 해킹 방지 칩셋 탑재</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span class="text-sm text-gray-700">엔드투엔드 암호화: AES-256 암호화로 모든 통신 보호</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span class="text-sm text-gray-700">제로트러스트 아키텍처: 지속적 인증 기반 접근 통제</span>
+                                    </li>
+                                </ul>
+                                
+                                <h4 class="text-base font-medium text-gray-700 border-b border-gray-100 pb-2 mb-3">개인정보 보호 전략</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span class="text-sm text-gray-700">데이터 최소화: 필수 정보만 수집, 익명화 처리</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span class="text-sm text-gray-700">로컬 프로세싱 우선: 개인정보 클라우드 전송 최소화</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span class="text-sm text-gray-700">투명한 데이터 관리: 사용자가 수집 데이터 확인/삭제 가능</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cost-Effectiveness -->
+                    <div data-aos="fade-up" data-aos-delay="400" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center mb-6">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-primary">
+                                        <i class="fas fa-chart-pie text-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-xl font-bold text-gray-900">비용-효과 분석</h3>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <h4 class="text-base font-medium text-gray-700 border-b border-gray-100 pb-2 mb-3">제품 가격 체계</h4>
+                                <ul class="space-y-2 mb-5">
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span class="text-sm text-gray-700"><strong>기본형 PLUG-SAFE+</strong>: 49,900원 (1~2인 가구 추천)</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span class="text-sm text-gray-700"><strong>고급형 PLUG-SAFE+ Pro</strong>: 79,900원 (3인 이상 가구 추천)</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span class="text-sm text-gray-700"><strong>상업용 PLUG-SAFE+ Business</strong>: 149,900원 (소상공인/사업장용)</span>
+                                    </li>
+                                </ul>
+                                
+                                <h4 class="text-base font-medium text-gray-700 border-b border-gray-100 pb-2 mb-3">경제적 효과</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span class="text-sm text-gray-700">가구당 연간 절감액: <strong class="text-green-600">114,600원</strong></span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span class="text-sm text-gray-700">평균 투자회수기간: <strong>11.4개월</strong> (세제혜택 적용 시 8.7개월)</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span class="text-sm text-gray-700">전국 규모 사회적 비용 절감: <strong>연간 3,590억 원</strong></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">PLUG-SAFE<span class="text-accent">+</span></h3>
+                    <p class="text-gray-400 text-sm">
+                        차세대 지능형 전기안전 플랫폼<br>
+                        2025년 제4회 전기안전 국민 공모전
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">바로가기</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white text-sm">홈</a></li>
+                        <li><a href="current-status.html" class="text-gray-400 hover:text-white text-sm">현황</a></li>
+                        <li><a href="background.html" class="text-gray-400 hover:text-white text-sm">배경 및 문제점</a></li>
+                        <li><a href="details.html" class="text-gray-400 hover:text-white text-sm">세부내용</a></li>
+                        <li><a href="expected-effects.html" class="text-gray-400 hover:text-white text-sm">기대효과</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">문의처</h3>
+                    <p class="text-gray-400 text-sm">
+                        한국전기안전공사 법제운영부<br>
+                        063) 716-2193, 2195<br>
+                        policy@kesco.or.kr
+                    </p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                <p class="text-gray-400 text-sm">&copy; 2025 PLUG-SAFE+. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS Animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true
+        });
+        
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Tab Functionality
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Get the target content element
+                    const target = document.querySelector(button.dataset.tabTarget);
+                    
+                    // Hide all tab contents
+                    tabContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    
+                    // Remove active class from all buttons
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('text-primary', 'border-primary');
+                        btn.classList.add('text-gray-500', 'border-transparent');
+                    });
+                    
+                    // Show the selected tab content
+                    target.classList.remove('hidden');
+                    
+                    // Add active class to clicked button
+                    button.classList.remove('text-gray-500', 'border-transparent');
+                    button.classList.add('text-primary', 'border-primary');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

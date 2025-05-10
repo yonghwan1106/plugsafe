@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배경 및 문제점 | PLUG-SAFE+ : 차세대 지능형 전기안전 플랫폼</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#fbbf24',
+                        accent: '#dc2626',
+                        dark: '#0f172a',
+                        light: '#f8fafc'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .problem-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .problem-card:hover .problem-icon {
+            transform: scale(1.2);
+            color: #1e40af;
+        }
+        
+        .dashed-line {
+            background-image: linear-gradient(to right, #e5e7eb 50%, transparent 50%);
+            background-size: 20px 1px;
+            background-repeat: repeat-x;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html" class="text-primary font-bold text-2xl">PLUG-SAFE<span class="text-accent">+</span></a>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            홈
+                        </a>
+                        <a href="current-status.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            현황
+                        </a>
+                        <a href="background.html" class="border-primary text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            배경 및 문제점
+                        </a>
+                        <a href="details.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            세부내용
+                        </a>
+                        <a href="expected-effects.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            기대효과
+                        </a>
+                        <a href="legal-policy.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            법률개정안
+                        </a>
+                        <a href="vision.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            장기 발전 비전
+                        </a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button type="button" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">메뉴 열기</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden hidden" id="mobile-menu">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="index.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">홈</a>
+                <a href="current-status.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">현황</a>
+                <a href="background.html" class="bg-primary text-white block pl-3 pr-4 py-2 text-base font-medium">배경 및 문제점</a>
+                <a href="details.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">세부내용</a>
+                <a href="expected-effects.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">기대효과</a>
+                <a href="legal-policy.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">법률개정안</a>
+                <a href="vision.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">장기 발전 비전</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="bg-primary pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-3xl font-extrabold text-white sm:text-4xl">
+                    배경 및 문제점
+                </h1>
+                <p class="mt-3 max-w-2xl mx-auto text-xl text-white sm:mt-4">
+                    일상 속 전기안전 관리의 한계, 디지털 전환 시대의 미흡한 안전 체계, 전기안전 생태계의 분절
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-12">
+        <!-- Introduction -->
+        <section class="py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-8 mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">문제의 배경</h2>
+                    <p class="text-lg text-gray-700 mb-6">
+                        전기는 현대 생활에서 필수적인 에너지원이지만, 동시에 잠재적인 위험 요소입니다. 전기화재는 2024년 국내 화재의 24.3%를 차지하며, 그 비율은 매년 증가하고 있습니다. 더 심각한 문제는 노인과 1인 가구와 같은 취약계층이 전기화재로 인한 사망 위험에 더 많이 노출되어 있다는 점입니다.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-6">
+                        현재의 전기안전 대책은 대부분 누전차단기와 같은 아날로그 안전장치와 정기 점검, 기본적인 안전교육에 의존하고 있습니다. 이러한 대책은 디지털 전환 시대에 맞지 않는 여러 한계점을 드러내고 있으며, 실질적인 사전 예방 효과를 거두지 못하고 있습니다.
+                    </p>
+                    <p class="text-lg text-gray-700">
+                        PLUG-SAFE+는 이러한 문제를 해결하기 위해 최신 IoT와 AI 기술을 활용한 차세대 전기안전 플랫폼을 제안합니다. 문제의 정확한 이해를 위해 먼저 현재 전기안전 체계의 주요 문제점을 살펴보겠습니다.
+                    </p>
+                </div>
+
+                <!-- Problem Categories -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <a href="#daily-safety" class="bg-white rounded-lg shadow-md p-6 text-center card-hover">
+                        <div class="rounded-full bg-blue-100 p-4 mx-auto w-16 h-16 flex items-center justify-center mb-4">
+                            <i class="fas fa-home text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">일상 속 전기안전 관리의 한계</h3>
+                        <p class="text-gray-600">눈에 보이지 않는 위험, 사전 예방 체계 부재, 표준화된 안전 지침의 한계</p>
+                    </a>
+                    <a href="#digital-era" class="bg-white rounded-lg shadow-md p-6 text-center card-hover">
+                        <div class="rounded-full bg-blue-100 p-4 mx-auto w-16 h-16 flex items-center justify-center mb-4">
+                            <i class="fas fa-laptop-house text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">디지털 전환 시대의 미흡한 안전 체계</h3>
+                        <p class="text-gray-600">아날로그 수준의 안전장치, 기기 증가에 따른 복잡성 심화, 개인 맞춤형 관리 부재</p>
+                    </a>
+                    <a href="#ecosystem" class="bg-white rounded-lg shadow-md p-6 text-center card-hover">
+                        <div class="rounded-full bg-blue-100 p-4 mx-auto w-16 h-16 flex items-center justify-center mb-4">
+                            <i class="fas fa-network-wired text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">전기안전 생태계의 분절</h3>
+                        <p class="text-gray-600">이해관계자 간 정보 단절, 통합적 접근 부재, 인센티브 구조 미흡</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Category 1: Daily Safety Management -->
+        <section id="daily-safety" class="py-8 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8">일상 속 전기안전 관리의 한계</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <!-- Problem 1 -->
+                    <div data-aos="fade-right" class="bg-white rounded-lg shadow-lg overflow-hidden problem-card">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="rounded-full bg-blue-100 p-3 mr-4">
+                                    <i class="fas fa-eye-slash text-2xl text-primary problem-icon"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900">눈에 보이지 않는 위험 인지 불가</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                일반 사용자들은 전기 과부하나 아크 발생과 같은 위험 징후를 인지하기 어렵습니다. 전기의 특성상 위험 요소가 눈에 보이지 않기 때문에 일상 생활 속에서 지속적으로 위험에 노출될 수 있습니다.
+                            </p>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-900 mb-2">사례</h4>
+                                <p class="text-sm text-gray-600">
+                                    2023년 서울 소재 다세대주택 화재 조사 결과, 콘센트 내부의 아크 발생이 3주 이상 지속되었으나 거주자는 이를 전혀 인지하지 못했고, 결국 대형 화재로 이어졌습니다. 아크 발생은 시각적으로 확인하기 어려워 일반인이 사전에 감지하는 것이 거의 불가능합니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Problem 2 -->
+                    <div data-aos="fade-left" class="bg-white rounded-lg shadow-lg overflow-hidden problem-card">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="rounded-full bg-blue-100 p-3 mr-4">
+                                    <i class="fas fa-exclamation-triangle text-2xl text-primary problem-icon"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900">사전 예방 체계 부재</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                대부분의 안전장치는 사고 발생 직전/직후에 작동되어 예방 효과가 제한적입니다. 누전차단기는 누전이 이미 발생한 후에야 작동하며, 사전 예방보다는 사후 대응에 초점을 맞추고 있습니다.
+                            </p>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-900 mb-2">문제점</h4>
+                                <p class="text-sm text-gray-600">
+                                    전기 안전 연구에 따르면 전기화재의 72%는 발생 72시간 전부터 징후가 나타나지만, 현행 시스템으로는 이를 감지할 방법이 없습니다. 사고 발생 직전에 차단하는 것보다 위험 징후를 조기에 감지하는 것이 피해를 근본적으로 줄이는 방법입니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Problem 3 -->
+                    <div data-aos="fade-right" class="bg-white rounded-lg shadow-lg overflow-hidden problem-card">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="rounded-full bg-blue-100 p-3 mr-4">
+                                    <i class="fas fa-database text-2xl text-primary problem-icon"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900">체계적 데이터 부재</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                개인별 전기 사용 패턴과 위험 요소에 대한 데이터 수집 및 분석 시스템이 미비합니다. 현재 시스템에서는 어떤 가전제품이 위험한지, 어떤 사용 패턴이 화재 위험을 높이는지에 대한 데이터가 수집되지 않아 개인화된 안전 관리가 불가능합니다.
+                            </p>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-900 mb-2">비교 사례</h4>
+                                <p class="text-sm text-gray-600">
+                                    자동차 산업에서는 운전 패턴, 차량 상태 등의 데이터를 수집하여 개인화된 안전 서비스를 제공하지만, 전기안전 분야에서는 이와 같은 데이터 기반 접근이 이루어지지 않고 있습니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Problem 4 -->
+                    <div data-aos="fade-left" class="bg-white rounded-lg shadow-lg overflow-hidden problem-card">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="rounded-full bg-blue-100 p-3 mr-4">
+                                    <i class="fas fa-clipboard-list text-2xl text-primary problem-icon"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900">표준화된 안전 지침 한계</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                획일적인 안전수칙은 개인별 생활환경과 사용 패턴의 차이를 반영하지 못합니다. 모든 가정에 동일한 안전 지침을 적용하는 것은 각 가정의 특성과 위험 요소를 고려하지 못하는 한계가 있습니다.
+                            </p>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-900 mb-2">예시</h4>
+                                <p class="text-sm text-gray-600">
+                                    노인 가구와 어린 자녀가 있는 가정, 1인 가구와 다가구 주택의 전기 사용 패턴과 위험 요소는 크게 다르지만, 현행 안전 지침은 이러한 차이를 반영하지 못하고 있습니다. 맞춤형 안전 관리와 교육이 필요합니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Category 2: Digital Transformation Era -->
+        <section id="digital-era" class="py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8">디지털 전환 시대의 미흡한 안전 체계</h2>
+                
+                <div class="bg-white rounded-lg shadow-lg p-8 mb-12">
+                    <div data-aos="fade-up" class="mb-8">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">디지털 시대의 전기안전 패러독스</h3>
+                        <p class="text-gray-600">
+                            우리 생활은 빠르게 디지털화되고 있지만, 전기안전 분야는 여전히 아날로그 시대에 머물러 있습니다. 스마트폰으로 거의 모든 것을 관리할 수 있는 시대에 전기안전만큼은 여전히 수동적이고 아날로그적인 방식에 의존하고 있습니다.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Problem 1 -->
+                        <div data-aos="zoom-in" data-aos-delay="100" class="border border-gray-200 rounded-lg p-6 problem-card card-hover">
+                            <div class="flex items-center mb-4">
+                                <div class="rounded-full bg-blue-100 p-3 mr-4">
+                                    <i class="fas fa-cogs text-2xl text-primary problem-icon"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-gray-900">아날로그 수준의 안전장치</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                스마트홈 환경 확산에도 불구하고 전기안전 시스템은 여전히 기초적인 수준에 머물러 있습니다. 스마트 냉장고, 세탁기, 에어컨 등은 많아졌지만, 이를 안전하게 관리하는 시스템은 여전히 50년 전과 크게 다르지 않습니다.
+                            </p>
+                            <div class="mt-auto">
+                                <div class="text-sm font-medium text-primary">문제점</div>
+                                <ul class="mt-2 space-y-1 text-sm text-gray-600">
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-red-400 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                        <span>기술적 낙후로 인한 안전 사각지대 발생</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-red-400 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                        <span>원격 모니터링 및 제어 기능 부재</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Problem 2 -->
+                        <div data-aos="zoom-in" data-aos-delay="200" class="border border-gray-200 rounded-lg p-6 problem-card card-hover">
+                            <div class="flex items-center mb-4">
+                                <div class="rounded-full bg-blue-100 p-3 mr-4">
+                                    <i class="fas fa-wifi text-2xl text-primary problem-icon"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-gray-900">기기 증가에 따른 복잡성 심화</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                IoT 기기 증가로 가정 내 전력망이 복잡해지고 과부하 위험이 증가했습니다. 2019년 대비 2024년 가정 내 IoT 기기는 약 3배 증가했지만, 이에 대응하는 안전 시스템은 발전하지 않았습니다.
+                            </p>
+                            <div class="mt-auto">
+                                <div class="text-sm font-medium text-primary">위험 요소</div>
+                                <ul class="mt-2 space-y-1 text-sm text-gray-600">
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-red-400 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                        <span>동시 사용 기기 증가로 인한 과부하</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-red-400 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                        <span>복잡한 전력 네트워크 관리 어려움</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Problem 3 -->
+                        <div data-aos="zoom-in" data-aos-delay="300" class="border border-gray-200 rounded-lg p-6 problem-card card-hover">
+                            <div class="flex items-center mb-4">
+                                <div class="rounded-full bg-blue-100 p-3 mr-4">
+                                    <i class="fas fa-user-cog text-2xl text-primary problem-icon"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-gray-900">개인 맞춤형 관리 부재</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                사용자별 전기 사용 패턴과 환경에 맞는 맞춤형 안전 관리 시스템이 부재합니다. 각 가정마다 다른 전력 사용 패턴과 환경을 고려하지 않는 일괄적인 안전 시스템은 효과적인 안전 관리가 어렵습니다.
+                            </p>
+                            <div class="mt-auto">
+                                <div class="text-sm font-medium text-primary">문제점</div>
+                                <ul class="mt-2 space-y-1 text-sm text-gray-600">
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-red-400 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                        <span>개인별 사용 패턴 분석 시스템 부재</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-red-400 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                        <span>맞춤형 안전 경고 및 제안 불가</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-6">취약계층 접근성 문제</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="border-l-4 border-primary pl-6 py-2">
+                            <h4 class="text-lg font-bold text-gray-900 mb-2">디지털 격차 심화</h4>
+                            <p class="text-gray-600">
+                                디지털 취약계층(노인, 장애인 등)은 기존 전기안전 정보에 대한 접근성이 낮습니다. 이로 인해 가장 위험에 노출된 계층이 오히려 안전 정보와 서비스로부터 소외되는 역설적 상황이 발생하고 있습니다.
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-secondary pl-6 py-2">
+                            <h4 class="text-lg font-bold text-gray-900 mb-2">안전 사각지대 발생</h4>
+                            <p class="text-gray-600">
+                                전기화재 사망자 중 65세 이상 노인 비율이 47%에 달하지만, 이들을 위한 맞춤형 안전 시스템은 거의 없습니다. 복잡한 디지털 인터페이스보다 직관적이고 사용하기 쉬운 안전 시스템이 필요합니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Problem Category 3: Ecosystem Segmentation -->
+        <section id="ecosystem" class="py-8 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8">전기안전 생태계의 분절</h2>
+                
+                <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-8 mb-12">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Problem 1 -->
+                        <div class="border-b md:border-b-0 md:border-r border-gray-200 pb-6 md:pb-0 md:pr-6">
+                            <div class="flex items-center mb-4">
+                                <div class="rounded-full bg-blue-100 p-3 mr-4">
+                                    <i class="fas fa-exchange-alt text-2xl text-primary"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900">이해관계자 간 정보 단절</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                전력회사, 가전제품 제조사, 안전기관 간 데이터 공유 및 협력 체계가 미비합니다. 각 기관이 보유한 정보가 통합되지 않아 위험 요소를 종합적으로 분석하고 대응하는 것이 어렵습니다.
+                            </p>
+                            <div class="mt-4">
+                                <h4 class="text-sm font-medium text-primary mb-2">주요 문제점</h4>
+                                <ul class="space-y-2 text-sm text-gray-600">
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-red-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                        <span>기관별 데이터 사일로 현상</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-red-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                        <span>표준화된 데이터 공유 플랫폼 부재</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-red-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                        <span>정보 공유의 법적·제도적 기반 미비</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Problem 2 -->
+                        <div class="border-b md:border-b-0 md:border-r border-gray-200 py-6 md:py-0 md:px-6">
+                            <div class="flex items-center mb-4">
+                                <div class="rounded-full bg-blue-100 p-3 mr-4">
+                                    <i class="fas fa-puzzle-piece text-2xl text-primary"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900">통합적 접근 부재</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                전기안전, 에너지 효율화, 생활편의성을 통합적으로 접근하는 시스템이 부재합니다. 각 요소가 분리되어 관리되기 때문에 시너지 효과를 만들어내지 못하고 있습니다.
+                            </p>
+                            <div class="mt-4">
+                                <h4 class="text-sm font-medium text-primary mb-2">현행 접근법의 한계</h4>
+                                <ul class="space-y-2 text-sm text-gray-600">
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-red-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                        <span>안전과 효율성을 별개로 접근</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-red-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                        <span>통합 시스템 없이 개별 솔루션 적용</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-red-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                        <span>사용자 경험 관점 부재</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Problem 3 -->
+                        <div class="pt-6 md:pt-0 md:pl-6">
+                            <div class="flex items-center mb-4">
+                                <div class="rounded-full bg-blue-100 p-3 mr-4">
+                                    <i class="fas fa-award text-2xl text-primary"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900">인센티브 구조 미흡</h3>
+                            </div>
+                            <p class="text-gray-600 mb-4">
+                                전기안전 실천을 위한 경제적·사회적 인센티브 체계가 미흡합니다. 전기안전 시스템 도입에 대한 충분한 인센티브가 없어 소비자와 기업의 자발적 참여가 저조합니다.
+                            </p>
+                            <div class="mt-4">
+                                <h4 class="text-sm font-medium text-primary mb-2">개선 필요 사항</h4>
+                                <ul class="space-y-2 text-sm text-gray-600">
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-red-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                        <span>안전 시스템 도입 보조금 부족</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-red-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                        <span>보험료 할인 등 경제적 혜택 미비</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-red-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                        <span>안전 인증 등 사회적 인정 체계 부족</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ecosystem Visualization -->
+                <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-6">현 전기안전 생태계 구조</h3>
+                    <div class="relative py-10">
+                        <!-- Stakeholders -->
+                        <div class="grid grid-cols-3 gap-4 mb-8">
+                            <div class="text-center">
+                                <div class="w-24 h-24 mx-auto rounded-full bg-blue-100 flex items-center justify-center mb-3">
+                                    <i class="fas fa-industry text-3xl text-primary"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-900">전력회사</h4>
+                                <p class="text-sm text-gray-600">전력 공급 및 기본 안전 관리</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-24 h-24 mx-auto rounded-full bg-blue-100 flex items-center justify-center mb-3">
+                                    <i class="fas fa-house-user text-3xl text-primary"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-900">소비자</h4>
+                                <p class="text-sm text-gray-600">전기 사용 및 안전 관리</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-24 h-24 mx-auto rounded-full bg-blue-100 flex items-center justify-center mb-3">
+                                    <i class="fas fa-laptop-house text-3xl text-primary"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-900">가전제품 제조사</h4>
+                                <p class="text-sm text-gray-600">제품 생산 및 기본 안전 기준 준수</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Connections - Dashed Lines -->
+                        <div class="absolute top-1/2 left-0 w-full h-0.5 dashed-line"></div>
+                        
+                        <!-- Problems -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="border border-red-200 rounded-lg p-4 bg-red-50">
+                                <div class="flex items-center mb-2">
+                                    <svg class="h-5 w-5 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                    <h4 class="font-medium text-gray-900">데이터 공유 부재</h4>
+                                </div>
+                                <p class="text-sm text-gray-600">
+                                    전력회사는 전력 사용 데이터를, 제조사는 제품 위험 데이터를 보유하고 있지만 상호 공유되지 않아 통합적 안전 관리가 불가능합니다.
+                                </p>
+                            </div>
+                            <div class="border border-red-200 rounded-lg p-4 bg-red-50">
+                                <div class="flex items-center mb-2">
+                                    <svg class="h-5 w-5 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                    <h4 class="font-medium text-gray-900">표준화된 인터페이스 부재</h4>
+                                </div>
+                                <p class="text-sm text-gray-600">
+                                    각 제조사별로 다른 인터페이스와 표준을 사용하여 통합 관리 시스템 구축이 어렵습니다. 개방형 API와 통합 표준이 필요합니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Summary & Next Section -->
+        <section class="py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-8 mb-12">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">문제 요약 및 해결 방향</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">핵심 문제점</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-base font-medium text-gray-900">눈에 보이지 않는 위험, 사전 예방 체계 부재</p>
+                                        <p class="text-sm text-gray-600">전기 위험의 비가시성으로 인한 인지 어려움과 사전 예방 시스템 부재</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-base font-medium text-gray-900">디지털 시대에 맞지 않는 아날로그 안전 체계</p>
+                                        <p class="text-sm text-gray-600">스마트 기기 증가에도 불구하고 안전 시스템은 아날로그 수준에 머물러 있음</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-base font-medium text-gray-900">맞춤형, 개인화된 안전 관리 부재</p>
+                                        <p class="text-sm text-gray-600">개인별 사용 패턴과 환경을 반영한 맞춤형 안전 시스템 부재</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-base font-medium text-gray-900">전기안전 생태계의 분절</p>
+                                        <p class="text-sm text-gray-600">이해관계자 간 데이터 공유 및 협력 체계 미비</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">해결 방향</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <svg class="h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-base font-medium text-gray-900">IoT 기반 실시간 모니터링 시스템</p>
+                                        <p class="text-sm text-gray-600">눈에 보이지 않는 위험을 감지하고 가시화하는 스마트 시스템 도입</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <svg class="h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-base font-medium text-gray-900">AI 기반 예측 및 사전 대응 체계</p>
+                                        <p class="text-sm text-gray-600">인공지능을 활용한 위험 예측 및 사전 차단 시스템 구축</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <svg class="h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-base font-medium text-gray-900">맞춤형 안전 가이드 제공</p>
+                                        <p class="text-sm text-gray-600">개인별 전기 사용 패턴을 분석하여 맞춤형 안전 제안 제공</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <svg class="h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-base font-medium text-gray-900">개방형 생태계 구축</p>
+                                        <p class="text-sm text-gray-600">이해관계자 간 데이터 공유와 협력을 위한 통합 플랫폼 구축</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Next Steps Section -->
+                <div class="text-center">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">혁신적인 해결책이 필요합니다</h2>
+                    <p class="text-lg text-gray-600 mb-8">
+                        PLUG-SAFE+는 이러한 문제점을 해결하기 위한 차세대 지능형 전기안전 플랫폼입니다.<br>
+                        AI와 IoT 기술을 활용한 혁신적인 해결책을 제안합니다.
+                    </p>
+                    <div class="inline-flex">
+                        <a href="details.html" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary hover:bg-blue-700">
+                            세부내용 알아보기
+                            <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">PLUG-SAFE<span class="text-accent">+</span></h3>
+                    <p class="text-gray-400 text-sm">
+                        차세대 지능형 전기안전 플랫폼<br>
+                        2025년 제4회 전기안전 국민 공모전
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">바로가기</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white text-sm">홈</a></li>
+                        <li><a href="current-status.html" class="text-gray-400 hover:text-white text-sm">현황</a></li>
+                        <li><a href="background.html" class="text-gray-400 hover:text-white text-sm">배경 및 문제점</a></li>
+                        <li><a href="details.html" class="text-gray-400 hover:text-white text-sm">세부내용</a></li>
+                        <li><a href="expected-effects.html" class="text-gray-400 hover:text-white text-sm">기대효과</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">문의처</h3>
+                    <p class="text-gray-400 text-sm">
+                        한국전기안전공사 법제운영부<br>
+                        063) 716-2193, 2195<br>
+                        policy@kesco.or.kr
+                    </p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                <p class="text-gray-400 text-sm">&copy; 2025 PLUG-SAFE+. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Main JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

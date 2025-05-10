@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장기 발전 비전 | PLUG-SAFE+ : 차세대 지능형 전기안전 플랫폼</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#fbbf24',
+                        accent: '#dc2626',
+                        dark: '#0f172a',
+                        light: '#f8fafc'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .hexagon {
+            position: relative;
+            width: 100px;
+            height: 57.74px;
+            background-color: #fff;
+            margin: 28.87px auto;
+        }
+        
+        .hexagon:before,
+        .hexagon:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+        }
+        
+        .hexagon:before {
+            bottom: 100%;
+            border-bottom: 28.87px solid #fff;
+        }
+        
+        .hexagon:after {
+            top: 100%;
+            border-top: 28.87px solid #fff;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #1e40af;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .milestone {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        
+        .milestone::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -13px;
+            background-color: white;
+            border: 4px solid #1e40af;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid #fff;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+        
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid #fff;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+        
+        .right::after {
+            left: -13px;
+        }
+        
+        .milestone-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .milestone {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .milestone::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+            
+            .left::after, .right::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+        
+        .globe-map {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background-color: #f0f9ff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .globe-location {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: #1e40af;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(30, 64, 175, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(30, 64, 175, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(30, 64, 175, 0);
+            }
+        }
+        
+        .connection-line {
+            position: absolute;
+            height: 2px;
+            background-color: rgba(30, 64, 175, 0.5);
+            transform-origin: 0 0;
+        }
+        
+        .tech-node {
+            transition: all 0.3s ease;
+        }
+        
+        .tech-node:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html" class="text-primary font-bold text-2xl">PLUG-SAFE<span class="text-accent">+</span></a>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            홈
+                        </a>
+                        <a href="current-status.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            현황
+                        </a>
+                        <a href="background.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            배경 및 문제점
+                        </a>
+                        <a href="details.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            세부내용
+                        </a>
+                        <a href="expected-effects.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            기대효과
+                        </a>
+                        <a href="legal-policy.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            법률개정안
+                        </a>
+                        <a href="vision.html" class="border-primary text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            장기 발전 비전
+                        </a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button type="button" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">메뉴 열기</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden hidden" id="mobile-menu">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="index.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">홈</a>
+                <a href="current-status.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">현황</a>
+                <a href="background.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">배경 및 문제점</a>
+                <a href="details.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">세부내용</a>
+                <a href="expected-effects.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">기대효과</a>
+                <a href="legal-policy.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">법률개정안</a>
+                <a href="vision.html" class="bg-primary text-white block pl-3 pr-4 py-2 text-base font-medium">장기 발전 비전</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="bg-primary pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-3xl font-extrabold text-white sm:text-4xl">
+                    장기 발전 비전
+                </h1>
+                <p class="mt-3 max-w-2xl mx-auto text-xl text-white sm:mt-4">
+                    PLUG-SAFE+의 기술 로드맵, 생태계 구축 전략, 글로벌 진출 계획
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-12">
+        <!-- Introduction Section -->
+        <section class="py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-8 mb-12">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mr-6">
+                            <i class="fas fa-lightbulb text-primary text-2xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-900">미래 안전 인프라의 핵심 허브</h2>
+                            <p class="text-gray-500">전기안전을 넘어 지능형 안전 생태계를 구축합니다</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-lg text-gray-700 mb-6">
+                        PLUG-SAFE+는 단순한 제품이 아닌 전기안전 패러다임을 바꾸는 생활 혁신 플랫폼입니다. 
+                        2025년 출시를 시작으로 향후 5년간 기술 발전, 생태계 확장, 글로벌 표준화를 통해 
+                        더 넓은 안전 영역으로 확장해 나갈 것입니다. 
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-blue-50 rounded-lg p-4 text-center">
+                            <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-microchip text-primary text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2">기술 고도화</h3>
+                            <p class="text-sm text-gray-600">AI 자율 대응 시스템 및 스마트그리드 연동 플랫폼으로 발전</p>
+                        </div>
+                        
+                        <div class="bg-blue-50 rounded-lg p-4 text-center">
+                            <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-project-diagram text-primary text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2">생태계 구축</h3>
+                            <p class="text-sm text-gray-600">개방형 API 플랫폼 및 서드파티 개발자 생태계 조성</p>
+                        </div>
+                        
+                        <div class="bg-blue-50 rounded-lg p-4 text-center">
+                            <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-globe-asia text-primary text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2">글로벌 확산</h3>
+                            <p class="text-sm text-gray-600">국제 표준 제정 및 아시아, 유럽, 북미 시장 진출</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Technology Roadmap Section -->
+        <section class="py-8 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">기술 발전 로드맵</h2>
+                
+                <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-8 mb-12">
+                    <div class="timeline">
+                        <!-- 2026 Milestone -->
+                        <div class="milestone left">
+                            <div class="milestone-content">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                        <span class="text-primary font-bold">2026</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-primary">다가구 주택 통합 관리 시스템</h3>
+                                </div>
+                                <p class="text-gray-700 mb-4">
+                                    건물 전체 전기 네트워크를 통합 관리하는 시스템으로 발전하여 아파트, 다세대 주택 등 공동주택 환경에 최적화된 솔루션을 제공합니다.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span class="bg-blue-100 text-primary px-3 py-1 rounded-full text-xs font-medium">중앙 제어 시스템</span>
+                                    <span class="bg-blue-100 text-primary px-3 py-1 rounded-full text-xs font-medium">세대별 모니터링</span>
+                                    <span class="bg-blue-100 text-primary px-3 py-1 rounded-full text-xs font-medium">공용설비 안전관리</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 2027 Milestone -->
+                        <div class="milestone right">
+                            <div class="milestone-content">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                        <span class="text-primary font-bold">2027</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-primary">인공지능 자율 대응 기능</h3>
+                                </div>
+                                <p class="text-gray-700 mb-4">
+                                    진화된 AI 알고리즘을 통해 문제 감지뿐만 아니라 스스로 전력 분배를 최적화하고 복구하는 자가치유(Self-healing) 기능을 구현합니다.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span class="bg-blue-100 text-primary px-3 py-1 rounded-full text-xs font-medium">자가치유 네트워크</span>
+                                    <span class="bg-blue-100 text-primary px-3 py-1 rounded-full text-xs font-medium">강화학습 알고리즘</span>
+                                    <span class="bg-blue-100 text-primary px-3 py-1 rounded-full text-xs font-medium">디지털 트윈 고도화</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 2028 Milestone -->
+                        <div class="milestone left">
+                            <div class="milestone-content">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                        <span class="text-primary font-bold">2028</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-primary">스마트그리드 연동 플랫폼</h3>
+                                </div>
+                                <p class="text-gray-700 mb-4">
+                                    국가 스마트그리드와 연동되어 전력 수요-공급 최적화에 기여하고, 재생에너지 활용 극대화를 위한 통합 에너지 관리 플랫폼으로 확장됩니다.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span class="bg-blue-100 text-primary px-3 py-1 rounded-full text-xs font-medium">수요 응답 시스템</span>
+                                    <span class="bg-blue-100 text-primary px-3 py-1 rounded-full text-xs font-medium">분산 에너지 관리</span>
+                                    <span class="bg-blue-100 text-primary px-3 py-1 rounded-full text-xs font-medium">V2G 연동</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 2030 Milestone -->
+                        <div class="milestone right">
+                            <div class="milestone-content">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                        <span class="text-primary font-bold">2030</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-primary">글로벌 전기안전 표준 플랫폼</h3>
+                                </div>
+                                <p class="text-gray-700 mb-4">
+                                    국제 표준을 선도하는 통합 안전 플랫폼으로 자리매김하며, 전기안전 뿐만 아니라 가스, 수도 등 다양한 안전 영역으로 확장된 종합 안전 시스템으로 발전합니다.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span class="bg-blue-100 text-primary px-3 py-1 rounded-full text-xs font-medium">ISO/IEC 국제표준</span>
+                                    <span class="bg-blue-100 text-primary px-3 py-1 rounded-full text-xs font-medium">통합안전플랫폼</span>
+                                    <span class="bg-blue-100 text-primary px-3 py-1 rounded-full text-xs font-medium">글로벌 데이터 협력</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Future Technology Visualization -->
+
+                </div>
+            </div>
+        </section>
+        
+        <!-- Ecosystem Building Section -->
+        <section class="py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">생태계 구축 전략</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <!-- API Ecosystem Card -->
+                    <div data-aos="fade-right" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-code text-primary text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900">개방형 API 생태계</h3>
+                            </div>
+                            
+                            <p class="text-gray-700 mb-6">
+                                PLUG-SAFE+는 서드파티 개발자들이 새로운 서비스와 기능을 쉽게 개발할 수 있는 개방형 API 플랫폼을 제공합니다. 이를 통해 다양한 산업 분야에서 PLUG-SAFE+의 데이터와 기능을 활용한 혁신적인 솔루션이 지속적으로 등장할 것입니다.
+                            </p>
+                            
+                            <div class="bg-gray-50 rounded-lg p-4 mb-6">
+                                <h4 class="font-medium text-gray-900 mb-3">API 생태계 구축 단계</h4>
+                                <div class="space-y-3">
+                                    <div class="flex items-start">
+                                        <div class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mr-3 flex-shrink-0">
+                                            <span class="text-primary font-medium text-xs">1</span>
+                                        </div>
+                                        <div>
+                                            <h5 class="text-sm font-medium text-gray-800">개발자 포털 구축</h5>
+                                            <p class="text-xs text-gray-600">API 문서, 코드 샘플, 개발 가이드 제공</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mr-3 flex-shrink-0">
+                                            <span class="text-primary font-medium text-xs">2</span>
+                                        </div>
+                                        <div>
+                                            <h5 class="text-sm font-medium text-gray-800">파트너십 프로그램</h5>
+                                            <p class="text-xs text-gray-600">주요 기업 및 스타트업과의 협력 체계 구축</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mr-3 flex-shrink-0">
+                                            <span class="text-primary font-medium text-xs">3</span>
+                                        </div>
+                                        <div>
+                                            <h5 class="text-sm font-medium text-gray-800">개발자 커뮤니티</h5>
+                                            <p class="text-xs text-gray-600">활성화된 개발자 네트워크 및 포럼 운영</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mr-3 flex-shrink-0">
+                                            <span class="text-primary font-medium text-xs">4</span>
+                                        </div>
+                                        <div>
+                                            <h5 class="text-sm font-medium text-gray-800">앱 마켓플레이스</h5>
+                                            <p class="text-xs text-gray-600">서드파티 앱 유통 및 수익 공유 모델</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h5 class="text-sm font-medium text-gray-900">예상 서드파티 앱 수</h5>
+                                    <p class="text-xl font-bold text-primary">500+</p>
+                                </div>
+                                <div>
+                                    <h5 class="text-sm font-medium text-gray-900">개발자 네트워크</h5>
+                                    <p class="text-xl font-bold text-primary">5,000+</p>
+                                </div>
+                                <div>
+                                    <h5 class="text-sm font-medium text-gray-900">연간 API 호출</h5>
+                                    <p class="text-xl font-bold text-primary">10억+</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- API Visualization -->
+                        <div class="bg-gray-50 p-4 border-t">
+                            <h4 class="text-sm font-medium text-gray-900 mb-3">주요 API 종류</h4>
+                            <div class="grid grid-cols-3 gap-2">
+                                <div class="bg-white p-2 rounded border border-gray-200 text-center">
+                                    <i class="fas fa-bolt text-primary text-lg mb-1"></i>
+                                    <p class="text-xs">전력 데이터</p>
+                                </div>
+                                <div class="bg-white p-2 rounded border border-gray-200 text-center">
+                                    <i class="fas fa-exclamation-triangle text-primary text-lg mb-1"></i>
+                                    <p class="text-xs">위험 알림</p>
+                                </div>
+                                <div class="bg-white p-2 rounded border border-gray-200 text-center">
+                                    <i class="fas fa-chart-line text-primary text-lg mb-1"></i>
+                                    <p class="text-xs">분석 리포트</p>
+                                </div>
+                                <div class="bg-white p-2 rounded border border-gray-200 text-center">
+                                    <i class="fas fa-cogs text-primary text-lg mb-1"></i>
+                                    <p class="text-xs">제어 기능</p>
+                                </div>
+                                <div class="bg-white p-2 rounded border border-gray-200 text-center">
+                                    <i class="fas fa-user-shield text-primary text-lg mb-1"></i>
+                                    <p class="text-xs">인증/권한</p>
+                                </div>
+                                <div class="bg-white p-2 rounded border border-gray-200 text-center">
+                                    <i class="fas fa-satellite-dish text-primary text-lg mb-1"></i>
+                                    <p class="text-xs">장치 관리</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Data-driven R&D Card -->
+                    <div data-aos="fade-left" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-database text-primary text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900">데이터 기반 R&D</h3>
+                            </div>
+                            
+                            <p class="text-gray-700 mb-6">
+                                PLUG-SAFE+를 통해 수집되는 방대한 데이터는 전기안전 분야의 혁신적인 연구개발을 가속화합니다. 사용자 동의 하에 익명화된 데이터를 활용하여 새로운 위험 패턴 발견, 알고리즘 개선, 제품 성능 향상을 지속적으로 추진합니다.
+                            </p>
+                            
+                            <div class="bg-gray-50 rounded-lg p-4 mb-6">
+                                <h4 class="font-medium text-gray-900 mb-3">데이터 기반 혁신 영역</h4>
+                                <div class="space-y-3">
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <div class="flex items-center justify-center h-8 w-8 rounded-md bg-blue-100 text-primary">
+                                                <i class="fas fa-chart-pie text-sm"></i>
+                                            </div>
+                                        </div>
+                                        <div class="ml-3">
+                                            <h5 class="text-sm font-medium text-gray-900">패턴 분석 및 예측</h5>
+                                            <p class="mt-1 text-xs text-gray-600">전기 사용 패턴과 이상 징후 간의 상관관계 분석</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <div class="flex items-center justify-center h-8 w-8 rounded-md bg-blue-100 text-primary">
+                                                <i class="fas fa-brain text-sm"></i>
+                                            </div>
+                                        </div>
+                                        <div class="ml-3">
+                                            <h5 class="text-sm font-medium text-gray-900">알고리즘 고도화</h5>
+                                            <p class="mt-1 text-xs text-gray-600">실제 데이터 기반 모델 학습으로 정확도 향상</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <div class="flex items-center justify-center h-8 w-8 rounded-md bg-blue-100 text-primary">
+                                                <i class="fas fa-map-marked-alt text-sm"></i>
+                                            </div>
+                                        </div>
+                                        <div class="ml-3">
+                                            <h5 class="text-sm font-medium text-gray-900">지역별 위험 요소 맵핑</h5>
+                                            <p class="mt-1 text-xs text-gray-600">지역별, 건물 유형별 전기안전 위험도 분석</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0">
+                                            <div class="flex items-center justify-center h-8 w-8 rounded-md bg-blue-100 text-primary">
+                                                <i class="fas fa-bullseye text-sm"></i>
+                                            </div>
+                                        </div>
+                                        <div class="ml-3">
+                                            <h5 class="text-sm font-medium text-gray-900">타겟 R&D 프로젝트</h5>
+                                            <p class="mt-1 text-xs text-gray-600">데이터 분석 기반 핵심 개선 영역 선정</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Data Metrics -->
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="text-sm font-medium text-gray-900 mb-3">데이터 기반 R&D 성과 목표</h4>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-primary h-2 rounded-full" style="width: 95%"></div>
+                                        </div>
+                                        <div class="flex justify-between mt-1">
+                                            <span class="text-xs text-gray-600">위험 탐지율</span>
+                                            <span class="text-xs font-medium">95% → 99.9%</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-primary h-2 rounded-full" style="width: 80%"></div>
+                                        </div>
+                                        <div class="flex justify-between mt-1">
+                                            <span class="text-xs text-gray-600">예측 정확도</span>
+                                            <span class="text-xs font-medium">72h → 168h</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-primary h-2 rounded-full" style="width: 60%"></div>
+                                        </div>
+                                        <div class="flex justify-between mt-1">
+                                            <span class="text-xs text-gray-600">오탐지율</span>
+                                            <span class="text-xs font-medium">0.1% → 0.01%</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-primary h-2 rounded-full" style="width: 90%"></div>
+                                        </div>
+                                        <div class="flex justify-between mt-1">
+                                            <span class="text-xs text-gray-600">에너지 효율</span>
+                                            <span class="text-xs font-medium">9.2% → 15%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- R&D Partners -->
+                        <div class="bg-gray-50 p-4 border-t">
+                            <h4 class="text-sm font-medium text-gray-900 mb-3">R&D 파트너십</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <div class="bg-white py-1 px-3 rounded-full text-xs border border-gray-200">한국전기안전공사</div>
+                                <div class="bg-white py-1 px-3 rounded-full text-xs border border-gray-200">한국전기연구원</div>
+                                <div class="bg-white py-1 px-3 rounded-full text-xs border border-gray-200">KAIST</div>
+                                <div class="bg-white py-1 px-3 rounded-full text-xs border border-gray-200">서울대학교</div>
+                                <div class="bg-white py-1 px-3 rounded-full text-xs border border-gray-200">성균관대학교</div>
+                                <div class="bg-white py-1 px-3 rounded-full text-xs border border-gray-200">삼성전자</div>
+                                <div class="bg-white py-1 px-3 rounded-full text-xs border border-gray-200">LG전자</div>
+                                <div class="bg-white py-1 px-3 rounded-full text-xs border border-gray-200">현대자동차</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Global Standardization -->
+                <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-8 mb-12">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-certificate text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900">글로벌 표준화</h3>
+                    </div>
+                    
+                    <p class="text-gray-700 mb-8">
+                        PLUG-SAFE+는 국내 전기안전 혁신을 넘어 글로벌 표준을 선도하고자 합니다. ISO/IEC 국제 표준 제정에 적극적으로 참여하고, 다양한 국가 및 지역의 전기안전 규제에 맞춘 현지화 전략을 추진합니다.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-medium text-gray-900 mb-4">표준화 추진 전략</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <span class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-blue-100 text-primary text-xs font-medium mr-3">1</span>
+                                    <div>
+                                        <h5 class="text-sm font-medium text-gray-800">국내 인증 표준화</h5>
+                                        <p class="text-xs text-gray-600 mt-1">국내 전기안전 인증 기준 및 시험 방법 제안</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <span class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-blue-100 text-primary text-xs font-medium mr-3">2</span>
+                                    <div>
+                                        <h5 class="text-sm font-medium text-gray-800">아시아 표준 협력체계</h5>
+                                        <p class="text-xs text-gray-600 mt-1">한국, 일본, 싱가포르 중심 아시아 표준 개발</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <span class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-blue-100 text-primary text-xs font-medium mr-3">3</span>
+                                    <div>
+                                        <h5 class="text-sm font-medium text-gray-800">ISO/IEC 표준 제안</h5>
+                                        <p class="text-xs text-gray-600 mt-1">국제 전기안전 IoT 표준 개발 기술위원회 참여</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <span class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-blue-100 text-primary text-xs font-medium mr-3">4</span>
+                                    <div>
+                                        <h5 class="text-sm font-medium text-gray-800">표준 적합성 인증 프로그램</h5>
+                                        <p class="text-xs text-gray-600 mt-1">글로벌 호환성 보장을 위한 인증 체계 구축</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-medium text-gray-900 mb-4">국제 표준화 프로세스</h4>
+                            
+                            <!-- Timeline Progress -->
+                            <div class="relative pt-1">
+                                <div class="flex mb-3">
+                                    <div class="w-3/12">
+                                        <div class="text-center">
+                                            <div class="w-8 h-8 rounded-full bg-primary text-white inline-flex items-center justify-center">
+                                                <i class="fas fa-check text-xs"></i>
+                                            </div>
+                                            <p class="text-xs mt-1">단계 1</p>
+                                        </div>
+                                    </div>
+                                    <div class="w-3/12">
+                                        <div class="text-center">
+                                            <div class="w-8 h-8 rounded-full bg-primary text-white inline-flex items-center justify-center">
+                                                <i class="fas fa-check text-xs"></i>
+                                            </div>
+                                            <p class="text-xs mt-1">단계 2</p>
+                                        </div>
+                                    </div>
+                                    <div class="w-3/12">
+                                        <div class="text-center">
+                                            <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-500 inline-flex items-center justify-center">
+                                                <span class="text-xs">3</span>
+                                            </div>
+                                            <p class="text-xs mt-1">단계 3</p>
+                                        </div>
+                                    </div>
+                                    <div class="w-3/12">
+                                        <div class="text-center">
+                                            <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-500 inline-flex items-center justify-center">
+                                                <span class="text-xs">4</span>
+                                            </div>
+                                            <p class="text-xs mt-1">단계 4</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="relative h-1 flex w-full">
+                                    <div class="bg-primary h-1 w-1/2"></div>
+                                    <div class="bg-gray-200 h-1 w-1/2"></div>
+                                </div>
+                                
+                                <!-- Timeline Details -->
+                                <div class="mt-6 space-y-4">
+                                    <div class="bg-blue-50 p-3 rounded-lg">
+                                        <h5 class="text-sm font-medium text-gray-900">현재: 위원회 단계</h5>
+                                        <p class="text-xs text-gray-600 mt-1">ISO/IEC JTC 1 SC 41(IoT 및 디지털 트윈) 위원회 활동 중</p>
+                                        <p class="text-xs text-primary mt-1 font-medium">예상 완료: 2027년 3월</p>
+                                    </div>
+                                    
+                                    <div class="bg-gray-50 p-3 rounded-lg">
+                                        <h5 class="text-sm font-medium text-gray-900">다음: 국제 투표 단계</h5>
+                                        <p class="text-xs text-gray-600 mt-1">회원국 투표를 통한 최종 국제 표준안 승인</p>
+                                        <p class="text-xs text-gray-500 mt-1">예상 기간: 2027년 4월 ~ 2028년 6월</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Talent Development -->
+                <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-8">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-user-graduate text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900">전문인력 양성</h3>
+                    </div>
+                    
+                    <p class="text-gray-700 mb-8">
+                        PLUG-SAFE+의 지속적인 발전과 확산을 위해서는 전기안전과 디지털 기술을 융합한 전문 인력 양성이 필수적입니다. 대학, 연구기관, 산업계와 협력하여 차세대 전기안전 전문가 육성 프로그램을 운영합니다.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-blue-50 p-5 rounded-lg text-center">
+                            <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-chart-line text-primary text-xl"></i>
+                            </div>
+                            <h4 class="font-medium text-gray-900 mb-2">전기안전 데이터 사이언티스트</h4>
+                            <p class="text-sm text-gray-600 mb-4">전기 데이터 분석 및 AI 알고리즘 개발 전문가</p>
+                            <div class="inline-block px-3 py-1 bg-white rounded-full text-xs text-primary font-medium">
+                                연간 100명 양성
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-5 rounded-lg text-center">
+                            <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-laptop-code text-primary text-xl"></i>
+                            </div>
+                            <h4 class="font-medium text-gray-900 mb-2">IoT 전기안전 개발자</h4>
+                            <p class="text-sm text-gray-600 mb-4">스마트 전기안전 기기 및 서비스 개발 전문가</p>
+                            <div class="inline-block px-3 py-1 bg-white rounded-full text-xs text-primary font-medium">
+                                연간 150명 양성
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-5 rounded-lg text-center">
+                            <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-tools text-primary text-xl"></i>
+                            </div>
+                            <h4 class="font-medium text-gray-900 mb-2">스마트 전기안전 관리자</h4>
+                            <p class="text-sm text-gray-600 mb-4">디지털 기술 기반 전기안전 관리 전문가</p>
+                            <div class="inline-block px-3 py-1 bg-white rounded-full text-xs text-primary font-medium">
+                                연간 300명 양성
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-gray-900 mb-4">교육 프로그램 및 협력 기관</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h5 class="text-sm font-medium text-primary mb-2">정규 교육 프로그램</h5>
+                                <ul class="space-y-2 text-sm text-gray-600">
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-primary mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span>대학 연계 스마트 전기안전 공학 과정</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-primary mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span>대학원 특성화 융합 학위 과정</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-primary mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span>특성화고 전기안전 IoT 전문가 과정</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h5 class="text-sm font-medium text-primary mb-2">전문 인증 과정</h5>
+                                <ul class="space-y-2 text-sm text-gray-600">
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-primary mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span>스마트 전기안전 전문가 자격증</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-primary mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span>전기안전 데이터 분석가 인증</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-5 w-5 text-primary mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span>PLUG-SAFE+ 개발자 인증 프로그램</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Global Expansion Section -->
+        <section class="py-8 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">글로벌 진출 전략</h2>
+                
+                <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-8 mb-12">
+                    <p class="text-lg text-gray-700 mb-8">
+                        국내 성공 사례를 바탕으로 아시아, 유럽, 북미 등 글로벌 시장으로 단계적으로 확장합니다. 각 지역별 특성과 규제에 맞는 현지화 전략을 통해 글로벌 전기안전 시장을 선도하겠습니다.
+                    </p>
+                    
+                    
+                    <!-- Global Expansion Strategy -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Asia Strategy -->
+                        <div class="bg-blue-50 p-5 rounded-lg">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                                    <i class="fas fa-globe-asia text-primary"></i>
+                                </div>
+                                <h3 class="font-bold text-gray-900">아시아 시장</h3>
+                            </div>
+                            
+                            <p class="text-sm text-gray-600 mb-4">
+                                한국 성공사례 기반 일본, 싱가포르, 대만 등 기술 선진국 우선 진출
+                            </p>
+                            
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs text-gray-600">일본</span>
+                                    <span class="text-xs text-gray-800 font-medium">2026년 Q3</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs text-gray-600">싱가포르</span>
+                                    <span class="text-xs text-gray-800 font-medium">2026년 Q4</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs text-gray-600">대만</span>
+                                    <span class="text-xs text-gray-800 font-medium">2027년 Q1</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs text-gray-600">말레이시아</span>
+                                    <span class="text-xs text-gray-800 font-medium">2027년 Q3</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4 pt-4 border-t border-blue-100">
+                                <h4 class="text-sm font-medium text-gray-900 mb-2">현지화 전략</h4>
+                                <ul class="text-xs text-gray-600 space-y-1">
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-primary mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span>현지 가전 제조사와 OEM 파트너십</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-primary mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span>현지 규제기관 협력 인증 획득</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-primary mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span>국가별 전력환경 맞춤형 최적화</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Europe Strategy -->
+                        <div class="bg-blue-50 p-5 rounded-lg">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                                    <i class="fas fa-globe-europe text-primary"></i>
+                                </div>
+                                <h3 class="font-bold text-gray-900">유럽 시장</h3>
+                            </div>
+                            
+                            <p class="text-sm text-gray-600 mb-4">
+                                EU 안전 표준 적합성 확보 후 독일, 프랑스, 영국 등 주요국 진출
+                            </p>
+                            
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs text-gray-600">독일</span>
+                                    <span class="text-xs text-gray-800 font-medium">2027년 Q4</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs text-gray-600">프랑스</span>
+                                    <span class="text-xs text-gray-800 font-medium">2028년 Q1</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs text-gray-600">영국</span>
+                                    <span class="text-xs text-gray-800 font-medium">2028년 Q2</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs text-gray-600">기타 EU국가</span>
+                                    <span class="text-xs text-gray-800 font-medium">2028년 Q4</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4 pt-4 border-t border-blue-100">
+                                <h4 class="text-sm font-medium text-gray-900 mb-2">현지화 전략</h4>
+                                <ul class="text-xs text-gray-600 space-y-1">
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-primary mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span>CE 인증 및 GDPR 준수 시스템</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-primary mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span>그린 에너지 정책 연계 제품 포지셔닝</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-primary mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span>유럽 현지 R&D 센터 설립</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- North America Strategy -->
+                        <div class="bg-blue-50 p-5 rounded-lg">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                                    <i class="fas fa-globe-americas text-primary"></i>
+                                </div>
+                                <h3 class="font-bold text-gray-900">북미 시장</h3>
+                            </div>
+                            
+                            <p class="text-sm text-gray-600 mb-4">
+                                미국, 캐나다를 중심으로 스마트홈 시장과 연계한 진출 전략
+                            </p>
+                            
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs text-gray-600">미국</span>
+                                    <span class="text-xs text-gray-800 font-medium">2028년 Q3</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs text-gray-600">캐나다</span>
+                                    <span class="text-xs text-gray-800 font-medium">2029년 Q1</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs text-gray-600">멕시코</span>
+                                    <span class="text-xs text-gray-800 font-medium">2029년 Q3</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs text-gray-600">중남미</span>
+                                    <span class="text-xs text-gray-800 font-medium">2030년+</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4 pt-4 border-t border-blue-100">
+                                <h4 class="text-sm font-medium text-gray-900 mb-2">현지화 전략</h4>
+                                <ul class="text-xs text-gray-600 space-y-1">
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-primary mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span>주요 스마트홈 기업 제휴 통한 시장 진입</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-primary mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span>UL 인증 및 FCC 승인 획득</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="h-4 w-4 text-primary mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span>현지 보험사 연계 마케팅</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Global Market Stats -->
+                    <div class="mt-8">
+                        <h3 class="text-xl font-bold text-gray-900 mb-6 text-center">글로벌 시장 전망</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <div class="h-64">
+                                    <canvas id="marketGrowthChart"></canvas>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="bg-gray-50 p-4 rounded-lg h-full">
+                                    <h4 class="font-medium text-gray-900 mb-4">글로벌 성과 목표 (2030년)</h4>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <div class="flex justify-between mb-1">
+                                                <span class="text-sm font-medium text-gray-700">해외 시장 매출 비중</span>
+                                                <span class="text-sm font-medium text-gray-700">65%</span>
+                                            </div>
+                                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                <div class="bg-primary h-2.5 rounded-full" style="width: 65%"></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="flex justify-between mb-1">
+                                                <span class="text-sm font-medium text-gray-700">글로벌 시장 점유율</span>
+                                                <span class="text-sm font-medium text-gray-700">25%</span>
+                                            </div>
+                                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                <div class="bg-primary h-2.5 rounded-full" style="width: 25%"></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="flex justify-between mb-1">
+                                                <span class="text-sm font-medium text-gray-700">글로벌 파트너 네트워크</span>
+                                                <span class="text-sm font-medium text-gray-700">150+</span>
+                                            </div>
+                                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                <div class="bg-primary h-2.5 rounded-full" style="width: 75%"></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div>
+                                            <div class="flex justify-between mb-1">
+                                                <span class="text-sm font-medium text-gray-700">국제 특허 출원</span>
+                                                <span class="text-sm font-medium text-gray-700">200+</span>
+                                            </div>
+                                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                <div class="bg-primary h-2.5 rounded-full" style="width: 80%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-6 pt-4 border-t border-gray-200">
+                                        <div class="flex justify-between">
+                                            <div>
+                                                <h5 class="text-sm font-medium text-gray-900">글로벌 매출 목표</h5>
+                                                <p class="text-xl font-bold text-primary">7,800억원</p>
+                                            </div>
+                                            <div>
+                                                <h5 class="text-sm font-medium text-gray-900">진출 국가</h5>
+                                                <p class="text-xl font-bold text-primary">25개국</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Vision & Conclusion Section -->
+        <section class="py-16 bg-primary">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold text-white mb-6">안전한 전기 생활문화의 패러다임 전환</h2>
+                <p class="text-xl text-blue-100 mb-10 max-w-3xl mx-auto">
+                    PLUG-SAFE+는 단순한 제품이 아닌 전기안전 패러다임을 바꾸는 생활 혁신 플랫폼입니다. 눈에 보이지 않던 전기 위험을 가시화하고, 수동적 대응에서 능동적 예방으로, 일방적 교육에서 참여형 안전문화로 전환하는 계기가 될 것입니다.
+                </p>
+                <p class="text-lg text-blue-100 mb-10">
+                    최첨단 기술의 적용과 사용자 중심 설계, 생태계 기반 접근을 통해 국민 모두가 안전하고 효율적인 전기 생활을 누릴 수 있도록 하겠습니다. 
+
+공공과 민간의 협력, 제도와 기술의 융합을 통해 글로벌 전기안전 리더십을 확보하고, 더 나아가 인공지능과 사물인터넷 기술을 활용한 국민 안전 증진의 새로운 모델을 제시할 것입니다.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="index.html" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-white hover:bg-blue-50">
+                        처음으로 돌아가기
+                    </a>
+                    <a href="details.html" class="inline-flex items-center justify-center px-6 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-blue-800">
+                        세부내용 살펴보기
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">PLUG-SAFE<span class="text-accent">+</span></h3>
+                    <p class="text-gray-400 text-sm">
+                        차세대 지능형 전기안전 플랫폼<br>
+                        2025년 제4회 전기안전 국민 공모전
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">바로가기</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white text-sm">홈</a></li>
+                        <li><a href="current-status.html" class="text-gray-400 hover:text-white text-sm">현황</a></li>
+                        <li><a href="background.html" class="text-gray-400 hover:text-white text-sm">배경 및 문제점</a></li>
+                        <li><a href="details.html" class="text-gray-400 hover:text-white text-sm">세부내용</a></li>
+                        <li><a href="expected-effects.html" class="text-gray-400 hover:text-white text-sm">기대효과</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">문의처</h3>
+                    <p class="text-gray-400 text-sm">
+                        한국전기안전공사 법제운영부<br>
+                        063) 716-2193, 2195<br>
+                        policy@kesco.or.kr
+                    </p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                <p class="text-gray-400 text-sm">&copy; 2025 PLUG-SAFE+. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Library JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Initialize AOS Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out-cubic',
+                once: true,
+                offset: 100
+            });
+            
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Market Growth Chart
+            const marketCtx = document.getElementById('marketGrowthChart').getContext('2d');
+            const marketGrowthChart = new Chart(marketCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2025', '2026', '2027', '2028', '2029', '2030'],
+                    datasets: [{
+                        label: '글로벌 시장 규모 (억원)',
+                        data: [1200, 2500, 3800, 5200, 6500, 7800],
+                        backgroundColor: 'rgba(30, 64, 175, 0.1)',
+                        borderColor: 'rgba(30, 64, 175, 1)',
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: true
+                    }, {
+                        label: '진출 국가 수',
+                        data: [1, 5, 10, 15, 20, 25],
+                        backgroundColor: 'rgba(251, 191, 36, 0.1)',
+                        borderColor: 'rgba(251, 191, 36, 1)',
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: true,
+                        yAxisID: 'y1'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        },
+                        title: {
+                            display: true,
+                            text: '글로벌 확장 전망'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: '시장 규모 (억원)'
+                            }
+                        },
+                        y1: {
+                            beginAtZero: true,
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: '진출 국가 수'
+                            },
+                            grid: {
+                                drawOnChartArea: false
+                            },
+                            max: 30
+                        }
+                    }
+                }
+            });
+
+            // Animate progress bars
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach(bar => {
+                // Initially set width to 0
+                const targetWidth = bar.style.width;
+                bar.style.width = '0%';
+                
+                // Animate to target width after a delay
+                setTimeout(() => {
+                    bar.style.width = targetWidth;
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>

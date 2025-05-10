@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>현황 | PLUG-SAFE+ : 차세대 지능형 전기안전 플랫폼</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#fbbf24',
+                        accent: '#dc2626',
+                        dark: '#0f172a',
+                        light: '#f8fafc'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .stat-circle {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .stat-circle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 15px solid #e5e7eb;
+        }
+        
+        .stat-circle::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 15px solid transparent;
+            border-top-color: #1e40af;
+            transform: rotate(45deg);
+        }
+        
+        .circle-24::after {
+            border-right-color: #1e40af;
+        }
+        
+        .circle-47::after {
+            border-right-color: #1e40af;
+            border-bottom-color: #1e40af;
+        }
+        
+        .circle-72::after {
+            border-right-color: #1e40af;
+            border-bottom-color: #1e40af;
+            border-left-color: #1e40af;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html" class="text-primary font-bold text-2xl">PLUG-SAFE<span class="text-accent">+</span></a>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            홈
+                        </a>
+                        <a href="current-status.html" class="border-primary text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            현황
+                        </a>
+                        <a href="background.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            배경 및 문제점
+                        </a>
+                        <a href="details.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            세부내용
+                        </a>
+                        <a href="expected-effects.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            기대효과
+                        </a>
+                        <a href="legal-policy.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            법률개정안
+                        </a>
+                        <a href="vision.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            장기 발전 비전
+                        </a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button type="button" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">메뉴 열기</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden hidden" id="mobile-menu">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="index.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">홈</a>
+                <a href="current-status.html" class="bg-primary text-white block pl-3 pr-4 py-2 text-base font-medium">현황</a>
+                <a href="background.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">배경 및 문제점</a>
+                <a href="details.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">세부내용</a>
+                <a href="expected-effects.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">기대효과</a>
+                <a href="legal-policy.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">법률개정안</a>
+                <a href="vision.html" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 block pl-3 pr-4 py-2 text-base font-medium">장기 발전 비전</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="bg-primary pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-3xl font-extrabold text-white sm:text-4xl">
+                    현황
+                </h1>
+                <p class="mt-3 max-w-2xl mx-auto text-xl text-white sm:mt-4">
+                    전기화재 통계 및 추세, 글로벌 전기안전 동향, 국내 전기안전 대책 현황
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-12">
+        <!-- Fire Statistics Section -->
+        <section class="py-8">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">전기화재 통계 및 추세</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                    <!-- Fire Pie Chart -->
+                    <div data-aos="fade-right" class="bg-white rounded-lg shadow-lg p-6">
+                        <div class="h-50">
+                            <canvas id="fire-safety-chart"></canvas>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-sm text-gray-500">2024년 국내 화재 중 전기화재는 24.3%를 차지하며, 전년도 22.8% 대비 1.5%p 증가하는 추세를 보이고 있습니다.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Electricity Usage Time Series -->
+                    <div data-aos="fade-left" class="bg-white rounded-lg shadow-lg p-6">
+                        <div class="h-80">
+                            <canvas id="electricity-usage-chart"></canvas>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-sm text-gray-500">최근 3년간 가정 내 전기화재 사고는 연평균 9.7%의 증가세를 보이며, 관련 경제적 피해액은 2024년 기준 약 6,200억 원에 달해 전년 대비 24% 증가했습니다.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Key Statistics -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6 counter-section">
+                    <!-- Stat Card 1 -->
+                    <div data-aos="zoom-in" data-aos-delay="100" class="bg-white rounded-lg shadow-lg p-6 text-center card-hover">
+                        <div class="stat-circle circle-24 mx-auto mb-4">
+                            <span class="text-4xl font-bold text-primary">24.3%</span>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900">전기화재 비중</h3>
+                        <p class="mt-2 text-sm text-gray-500">2024년 국내 화재 중 전기화재가 차지하는 비중</p>
+                    </div>
+                    
+                    <!-- Stat Card 2 -->
+                    <div data-aos="zoom-in" data-aos-delay="200" class="bg-white rounded-lg shadow-lg p-6 text-center card-hover">
+                        <div class="stat-circle circle-47 mx-auto mb-4">
+                            <span class="text-4xl font-bold text-primary">47%</span>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900">노인 사망 비율</h3>
+                        <p class="mt-2 text-sm text-gray-500">전기화재 사망자 중 65세 이상 노인 비율</p>
+                    </div>
+                    
+                    <!-- Stat Card 3 -->
+                    <div data-aos="zoom-in" data-aos-delay="300" class="bg-white rounded-lg shadow-lg p-6 text-center card-hover">
+                        <div class="stat-circle circle-72 mx-auto mb-4">
+                            <span class="text-4xl font-bold text-primary">72시간</span>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900">예측 가능 시간</h3>
+                        <p class="mt-2 text-sm text-gray-500">전기화재 발생 평균 72시간 전 위험징후 포착 가능</p>
+                    </div>
+                    
+                    <!-- Stat Card 4 -->
+                    <div data-aos="zoom-in" data-aos-delay="400" class="bg-white rounded-lg shadow-lg p-6 text-center card-hover">
+                        <div class="stat-circle mx-auto mb-4">
+                            <span class="text-4xl font-bold text-accent">9.7%</span>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900">연평균 증가율</h3>
+                        <p class="mt-2 text-sm text-gray-500">최근 3년간 가정 내 전기화재 사고 연평균 증가율</p>
+                    </div>
+                </div>
+                
+                <!-- Fire Causes Analysis -->
+                <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-6 mb-12">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">가정 내 전기화재 원인 분석</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Cause 1 -->
+                        <div class="p-4 border rounded-lg border-gray-200">
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 mr-3 rounded-full bg-blue-100 flex items-center justify-center">
+                                    <i class="fas fa-bolt text-primary"></i>
+                                </div>
+                                <h4 class="text-lg font-medium">노후 전선</h4>
+                            </div>
+                            <div class="ml-11">
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-primary h-2.5 rounded-full" style="width: 22.8%"></div>
+                                </div>
+                                <p class="text-sm text-gray-500 mt-1">22.8%</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Cause 2 -->
+                        <div class="p-4 border rounded-lg border-gray-200">
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 mr-3 rounded-full bg-blue-100 flex items-center justify-center">
+                                    <i class="fas fa-plug text-primary"></i>
+                                </div>
+                                <h4 class="text-lg font-medium">과부하</h4>
+                            </div>
+                            <div class="ml-11">
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-primary h-2.5 rounded-full" style="width: 19.5%"></div>
+                                </div>
+                                <p class="text-sm text-gray-500 mt-1">19.5%</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Cause 3 -->
+                        <div class="p-4 border rounded-lg border-gray-200">
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 mr-3 rounded-full bg-blue-100 flex items-center justify-center">
+                                    <i class="fas fa-tint text-primary"></i>
+                                </div>
+                                <h4 class="text-lg font-medium">누전</h4>
+                            </div>
+                            <div class="ml-11">
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-primary h-2.5 rounded-full" style="width: 16.1%"></div>
+                                </div>
+                                <p class="text-sm text-gray-500 mt-1">16.1%</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Cause 4 -->
+                        <div class="p-4 border rounded-lg border-gray-200">
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 mr-3 rounded-full bg-blue-100 flex items-center justify-center">
+                                    <i class="fas fa-unlink text-primary"></i>
+                                </div>
+                                <h4 class="text-lg font-medium">접촉불량</h4>
+                            </div>
+                            <div class="ml-11">
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-primary h-2.5 rounded-full" style="width: 15.3%"></div>
+                                </div>
+                                <p class="text-sm text-gray-500 mt-1">15.3%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Global Trends Section -->
+        <section class="py-8 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">글로벌 전기안전 동향</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                    <div data-aos="fade-right" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">주요 선진국 전기안전 혁신 사례</h3>
+                            <ul class="space-y-4">
+                                <li class="flex">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                                        <span class="text-primary font-medium">미</span>
+                                    </span>
+                                    <div>
+                                        <p class="text-base font-medium text-gray-900">미국 CPSC의 'SaferProducts'</p>
+                                        <p class="text-sm text-gray-500">스마트 센서 기반 화재 예방 시스템 도입 후 관련 화재 32% 감소</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-red-100 flex items-center justify-center mr-3">
+                                        <span class="text-red-600 font-medium">일</span>
+                                    </span>
+                                    <div>
+                                        <p class="text-base font-medium text-gray-900">일본 'e-안심' 이니셔티브</p>
+                                        <p class="text-sm text-gray-500">IoT 기반 전기안전 시스템으로 고령자 가구 화재 41% 감소</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                                        <span class="text-primary font-medium">EU</span>
+                                    </span>
+                                    <div>
+                                        <p class="text-base font-medium text-gray-900">EU의 'ElectraSafe' 표준</p>
+                                        <p class="text-sm text-gray-500">지능형 전기 모니터링 시스템 의무화로 전기화재 27% 감소</p>
+                                    </div>
+                                </li>
+                                <li class="flex">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-red-100 flex items-center justify-center mr-3">
+                                        <span class="text-red-600 font-medium">영</span>
+                                    </span>
+                                    <div>
+                                        <p class="text-base font-medium text-gray-900">영국 'Smart Home Safety Network'</p>
+                                        <p class="text-sm text-gray-500">인공지능 기반 가정 내 전기안전 모니터링 시스템 도입으로 화재 조기 감지율 78% 향상</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div data-aos="fade-left" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">글로벌 전기안전 트렌드</h3>
+                            <div class="space-y-4">
+                                <div class="border-l-4 border-primary pl-4 py-2">
+                                    <h4 class="text-lg font-medium text-gray-900">IoT 기반 실시간 모니터링</h4>
+                                    <p class="text-sm text-gray-500">사물인터넷 기술을 활용한 전기 사용 패턴 분석 및 위험 예측 시스템이 확산되고 있습니다. 2023년 기준 글로벌 시장 규모는 약 120억 달러로 연평균 23.5% 성장 중입니다.</p>
+                                </div>
+                                <div class="border-l-4 border-secondary pl-4 py-2">
+                                    <h4 class="text-lg font-medium text-gray-900">AI 기반 예측 모델</h4>
+                                    <p class="text-sm text-gray-500">머신러닝, 딥러닝 기술을 활용한 전기화재 위험 예측 모델이 개발되어 사전 예방 중심의 안전 체계로 전환되고 있습니다.</p>
+                                </div>
+                                <div class="border-l-4 border-accent pl-4 py-2">
+                                    <h4 class="text-lg font-medium text-gray-900">스마트그리드 연계</h4>
+                                    <p class="text-sm text-gray-500">국가 단위 전력망과 가정 내 안전 시스템을 연결하는 통합 모델이 확산되어 에너지 효율화와 안전성을 동시에 향상시키고 있습니다.</p>
+                                </div>
+                                <div class="border-l-4 border-gray-400 pl-4 py-2">
+                                    <h4 class="text-lg font-medium text-gray-900">취약계층 맞춤형 솔루션</h4>
+                                    <p class="text-sm text-gray-500">노인, 장애인, 1인 가구 등 전기안전 취약계층을 위한 특화된 솔루션 개발 및 보급이 각국 정부 주도로 이루어지고 있습니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Global Safety Index Comparison -->
+                <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-6">주요국 전기안전지수 비교 (2024년)</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">국가</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">안전지수</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">화재발생률</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">스마트 시스템 도입률</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">주요 안전 정책</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="w-6 h-6 mr-3 rounded-full bg-blue-100 flex items-center justify-center">
+                                                <span class="text-primary font-medium">미</span>
+                                            </div>
+                                            <div class="text-sm font-medium text-gray-900">미국</div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="w-24 bg-gray-200 rounded-full h-2.5 mr-2">
+                                                <div class="bg-primary h-2.5 rounded-full" style="width: 88%"></div>
+                                            </div>
+                                            <span class="text-sm text-gray-500">88/100</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">0.12%</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">67%</td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">SaferProducts 의무화</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="w-6 h-6 mr-3 rounded-full bg-red-100 flex items-center justify-center">
+                                                <span class="text-red-600 font-medium">일</span>
+                                            </div>
+                                            <div class="text-sm font-medium text-gray-900">일본</div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="w-24 bg-gray-200 rounded-full h-2.5 mr-2">
+                                                <div class="bg-primary h-2.5 rounded-full" style="width: 92%"></div>
+                                            </div>
+                                            <span class="text-sm text-gray-500">92/100</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">0.09%</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">75%</td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">e-안심 IoT 시스템 확산</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="w-6 h-6 mr-3 rounded-full bg-blue-100 flex items-center justify-center">
+                                                <span class="text-primary font-medium">EU</span>
+                                            </div>
+                                            <div class="text-sm font-medium text-gray-900">EU</div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="w-24 bg-gray-200 rounded-full h-2.5 mr-2">
+                                                <div class="bg-primary h-2.5 rounded-full" style="width: 90%"></div>
+                                            </div>
+                                            <span class="text-sm text-gray-500">90/100</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">0.11%</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">72%</td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">ElectraSafe 표준화</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="w-6 h-6 mr-3 rounded-full bg-red-100 flex items-center justify-center">
+                                                <span class="text-red-600 font-medium">한</span>
+                                            </div>
+                                            <div class="text-sm font-medium text-gray-900">한국</div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="w-24 bg-gray-200 rounded-full h-2.5 mr-2">
+                                                <div class="bg-primary h-2.5 rounded-full" style="width: 78%"></div>
+                                            </div>
+                                            <span class="text-sm text-gray-500">78/100</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">0.24%</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">38%</td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">누전차단기 의무화</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Current Safety Measures Section -->
+        <section class="py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">국내 전기안전 대책 현황</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                    <!-- Current Measure 1 -->
+                    <div data-aos="fade-up" data-aos-delay="100" class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="rounded-full bg-blue-100 p-3 mr-4">
+                                    <i class="fas fa-shield-alt text-2xl text-primary"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900">누전차단기 설치</h3>
+                            </div>
+                            <ul class="mt-4 space-y-2 text-sm text-gray-500">
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>모든 주택 및 건물 설치 의무화</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>누전 발생 시 전원 차단</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-red-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                    <span>위험 수준 도달 후 작동 (사전 예방 불가)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-red-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                    <span>아크 발생 등 초기 위험 징후 감지 불가</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-red-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                    <span>과부하 상태 지속 시 대응 한계</span>
+                                </li>
+                            </ul>
+                            <div class="mt-6 pt-4 border-t border-gray-200">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm font-medium text-gray-700">효과성 평가</span>
+                                    <div class="flex">
+                                        <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        <svg class="h-5 w-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        <svg class="h-5 w-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Current Measure 2 -->
+                    <div data-aos="fade-up" data-aos-delay="200" class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="rounded-full bg-blue-100 p-3 mr-4">
+                                    <i class="fas fa-clipboard-check text-2xl text-primary"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900">정기 안전점검</h3>
+                            </div>
+                            <ul class="mt-4 space-y-2 text-sm text-gray-500">
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>집합건물 3년 주기 의무 점검</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>노후 전기설비 교체 권고</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-red-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                    <span>단독주택 점검 미의무화</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-red-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                    <span>점검 주기 간 위험 상태 변화 대응 불가</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-red-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                    <span>위험 요소 개선 권고 후 사후 관리 미흡</span>
+                                </li>
+                            </ul>
+                            <div class="mt-6 pt-4 border-t border-gray-200">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm font-medium text-gray-700">효과성 평가</span>
+                                    <div class="flex">
+                                        <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        <svg class="h-5 w-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        <svg class="h-5 w-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        <svg class="h-5 w-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Current Measure 3 -->
+                    <div data-aos="fade-up" data-aos-delay="300" class="bg-white rounded-lg shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="rounded-full bg-blue-100 p-3 mr-4">
+                                    <i class="fas fa-graduation-cap text-2xl text-primary"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900">안전교육</h3>
+                            </div>
+                            <ul class="mt-4 space-y-2 text-sm text-gray-500">
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>공공시설, 학교 중심 안전교육 실시</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>온라인 안전 정보 제공</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-red-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                    <span>일반 가정 대상 교육 프로그램 부족</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-red-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                    <span>취약계층(노인, 1인 가구) 접근성 낮음</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="h-5 w-5 text-red-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                    <span>획일적 교육으로 맞춤형 안전 정보 부재</span>
+                                </li>
+                            </ul>
+                            <div class="mt-6 pt-4 border-t border-gray-200">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm font-medium text-gray-700">효과성 평가</span>
+                                    <div class="flex">
+                                        <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        <svg class="h-5 w-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        <svg class="h-5 w-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        <svg class="h-5 w-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Summary -->
+                <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">현황 요약</h3>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div class="border-l-4 border-accent pl-4 py-2">
+                            <h4 class="text-lg font-medium text-gray-900">전기화재 위험 증가</h4>
+                            <p class="text-base text-gray-600">전기화재 비중이 전년 대비 1.5%p 증가하고 경제적 피해액은 24% 증가하여 근본적인 안전대책 마련이 시급합니다.</p>
+                        </div>
+                        <div class="border-l-4 border-primary pl-4 py-2">
+                            <h4 class="text-lg font-medium text-gray-900">취약계층 안전 사각지대</h4>
+                            <p class="text-base text-gray-600">노인과 1인 가구에서 전기화재 사망자 비율이 높게 나타나며, 이들을 위한 맞춤형 안전 대책이 필요합니다.</p>
+                        </div>
+                        <div class="border-l-4 border-yellow-500 pl-4 py-2">
+                            <h4 class="text-lg font-medium text-gray-900">글로벌 대비 뒤처진 안전 기술</h4>
+                            <p class="text-base text-gray-600">주요 선진국은 IoT, AI 기반 스마트 안전 시스템을 도입하여 전기화재를 20-40% 감소시킨 반면, 한국은 기초적 안전장치 중심으로 운영되고 있습니다.</p>
+                        </div>
+                        <div class="border-l-4 border-secondary pl-4 py-2">
+                            <h4 class="text-lg font-medium text-gray-900">사전 예방 체계 부재</h4>
+                            <p class="text-base text-gray-600">현행 안전 대책은 사후 대응 중심으로, 화재 발생 전 위험 요소를 사전에 감지하고 예방하는 시스템이 미비합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Next Steps Section -->
+        <section class="py-12 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900">다음 단계</h2>
+                    <p class="mt-2 text-lg text-gray-600">전기안전 대응을 위한 새로운 패러다임이 필요합니다</p>
+                </div>
+                
+                <div class="inline-flex w-full justify-center">
+                    <a href="background.html" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary hover:bg-blue-700">
+                        배경 및 문제점 알아보기
+                        <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">PLUG-SAFE<span class="text-accent">+</span></h3>
+                    <p class="text-gray-400 text-sm">
+                        차세대 지능형 전기안전 플랫폼<br>
+                        2025년 제4회 전기안전 국민 공모전
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">바로가기</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white text-sm">홈</a></li>
+                        <li><a href="current-status.html" class="text-gray-400 hover:text-white text-sm">현황</a></li>
+                        <li><a href="background.html" class="text-gray-400 hover:text-white text-sm">배경 및 문제점</a></li>
+                        <li><a href="details.html" class="text-gray-400 hover:text-white text-sm">세부내용</a></li>
+                        <li><a href="expected-effects.html" class="text-gray-400 hover:text-white text-sm">기대효과</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">문의처</h3>
+                    <p class="text-gray-400 text-sm">
+                        한국전기안전공사 법제운영부<br>
+                        063) 716-2193, 2195<br>
+                        policy@kesco.or.kr
+                    </p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                <p class="text-gray-400 text-sm">&copy; 2025 PLUG-SAFE+. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Main JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
